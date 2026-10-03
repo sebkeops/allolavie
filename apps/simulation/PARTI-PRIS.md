@@ -3,149 +3,193 @@
 > **Statut : PROPOSITION, en attente de validation.** Aucune ligne de design n'est écrite
 > avant validation (brief lot 0 §3).
 >
-> ⚠️ **Analyse partielle.** Le site actuel (allolavie.fr) est **inaccessible depuis la
-> session cloud** : la politique réseau de l'environnement bloque le domaine (et
-> archive.org). Le logo, les couleurs réelles, les photos et les textes d'origine n'ont
-> donc **pas été vus**. Cette note s'appuie uniquement sur les constats transmis par
-> Sébastien. Tout ce qui touche à l'ADN visuel est marqué *provisoire* et sera recalé sur
-> l'existant dès que le site ou ses fichiers seront accessibles.
+> **Sources analysées :** les 7 pages d'allolavie.fr (dernière mise à jour affichée :
+> 17 avril 2026), la feuille de style `Allo1.css`, le logo, l'image de fond et les
+> 8 photos du site, copiés dans `sources/site-actuel/` (non versionné), ainsi que les
+> constats transmis par Sébastien.
 
-## 1. Ce qu'on garde de l'existant (ADN)
+## 1. L'ADN du site actuel
 
-- **La voix de Nathalie** : très personnelle, chaleureuse, imagée — la métaphore de « la
-  Vie comme une rivière » devient le fil conducteur visuel (lignes courbes, mouvement
-  lent, rien d'anguleux).
-- **L'écriture inclusive au point médian** (perdu·e, accompagné·e), conservée partout.
-- **L'échange humain d'abord** : le téléphone est le premier CTA, avant tout formulaire.
-- **Le message « Si le tarif est un frein, parlons-en »**, tel quel.
-- Le nom **« Allo la Vie »** (le jeu sur « allô » justifie un CTA d'appel très présent).
+| Élément | Constat |
+|---|---|
+| **Logo** | « Allo la Vie » en **écriture manuscrite orange vif** (`#F68808`, couleur reprise au survol du menu). Fourni en PNG 493 × 154 sur fond transparent. Les titres de section sont dans la même écriture, en images PNG. |
+| **Couleur de texte** | **Bleu-vert profond `#156669`** sur tout le site (texte, liens, bordures). Survol `#408680`. |
+| **Fond** | Photo plein écran de **feuillage vert tendre**, lumineux et flou. Menu en vert anis (`#ADDD4B`, `#66FF66`, `#DDFA64`). |
+| **Typo** | Verdana partout, souvent en gras, de 12 à 26 px. Comic Sans déclaré dans la CSS. |
+| **Photos** | Très personnelles : Nathalie souriante (portrait), Nathalie allongée dans l'herbe près d'un cheval, Nathalie avec un corbeau sur la tête, un troupeau de chevaux, deux chiens au bord de l'eau, une montagne, un coucher de soleil sur la mer. **Nature, animaux, lumière, humour.** Le orange revient même sur ses photos (bandeau, veste). |
+| **Ton** | Je, intime, imagé (« La Vie, c'est comme une rivière »), points d'exclamation, « merci la Vie ! ». Écriture inclusive au **point** (perdu.e, écouté.e). |
+
+**Ce qu'on garde :** l'orange du logo comme signature, le bleu-vert comme couleur de
+confiance, la fraîcheur végétale, la nature et les animaux, la voix à la première
+personne, la métaphore de la rivière, et le message sur le tarif.
 
 ## 2. Ce qu'on corrige
 
-| Constat sur l'existant | Correction dans la simulation |
+| Constat (vérifié dans le code source) | Correction dans la simulation |
 |---|---|
-| Mise en page en tableaux, espacement par paragraphes vides, pas responsive | Mise en page fluide mobile-first, espacements par le CSS |
-| Titres de section en images PNG | Vrais titres HTML (lisibles par Google et les lecteurs d'écran), un seul `<h1>` |
-| Même `<title>` partout, aucune meta description | Title + description propres (simulation one-page : un seul couple, en `noindex`) |
-| Aucune zone géographique | Section « Où et comment » + teaser « une page par commune » (non construit) |
-| Pas de bouton d'appel ni de parcours de RDV | Téléphone cliquable dans l'en-tête fixe + barre fixe bas d'écran « Appeler / Prendre RDV » |
-| Contenu maigre, un seul témoignage | Sections structurées ; textes enrichis **uniquement à partir de ce que Nathalie fournit** |
-| Mentions légales et charte dans le menu principal | Déplacées en pied de page ; menu réduit à 4 entrées + burger mobile |
+| Mise en page en `<table>` de largeur fixe (930 / 850 px, `body` à 1000 px) : défilement horizontal sur mobile | Mise en page fluide, mobile d'abord |
+| Espacements faits de dizaines de `<p>&nbsp;</p>` | Espacements gérés par le CSS |
+| Titres de section en images PNG, aucun `<h1>` | Vrais titres HTML, un seul `<h1>` |
+| `<title>Allo la Vie</title>` identique sur les 7 pages, aucune meta description | Title et description dédiés (la simulation reste en `noindex`) |
+| Texte en 12 px gras, `#156669` sur un fond photo vert : lisibilité variable selon la zone | Texte de 18 px, contrastes calculés (§3) |
+| Aucune zone d'intervention mentionnée | Section « Où et comment » + teaser « une page par commune » (non construit) |
+| Pas de bouton d'appel ; le numéro n'est pas cliquable | Téléphone cliquable dans l'en-tête fixe + barre bas d'écran « Appeler / Prendre RDV » |
+| Mentions légales et charte dans le menu principal (7 entrées) | Pied de page ; menu de 4 entrées + burger |
+| Photos de 200 à 450 px de large | Utilisées en petit format, en attendant les originaux (À arbitrer n° 7) |
 
-## 3. Palette (provisoire — à recaler sur le logo)
+## 3. Palette — l'existant, adouci
 
-Direction demandée : sauge, sable, terracotta clair. Jetons déclarés en triplets RVB dans
-`app/globals.css`. Contrastes **calculés** (formule WCAG 2.x), pas estimés.
+La palette naît de l'existant et rejoint la direction « sauge / sable / terracotta » :
+le **bleu-vert** du texte devient la couleur de marque, l'**orange** du logo est gardé pour
+la signature et décliné en **terre cuite** lisible, et le **vert feuillage** du fond devient
+un fond pâle. Jetons déclarés en triplets RVB dans `app/globals.css`, contrastes
+**calculés** (WCAG 2.x).
 
-| Jeton | Hex | Triplet | Rôle |
-|---|---|---|---|
-| `--paper` | `#FAF6F0` | `250 246 240` | Fond principal (blanc cassé chaud) |
-| `--sand` | `#EFE6D8` | `239 230 216` | Fond des sections alternées, cartes |
-| `--ink` | `#2E2B27` | `46 43 39` | Texte courant |
-| `--muted` | `#5E5A53` | `94 90 83` | Texte secondaire |
-| `--sage` | `#4A6B57` | `74 107 87` | Couleur de marque : titres, liens, bouton principal |
-| `--sage-soft` | `#A9BDA8` | `169 189 168` | Décor uniquement (courbes, fonds de pastilles) |
-| `--terra` | `#D99A7E` | `217 154 126` | Décor uniquement (accents, soulignés) |
-| `--terra-deep` | `#9C4A2C` | `156 74 44` | Accent texte, bouton « Appeler » |
+| Jeton | Hex | Triplet | Origine | Rôle |
+|---|---|---|---|---|
+| `--paper` | `#FBF8F2` | `251 248 242` | — | Fond principal |
+| `--sand` | `#F1EADC` | `241 234 220` | — | Sections alternées, cartes |
+| `--leaf` | `#E4EDCF` | `228 237 207` | fond feuillage, très adouci | Sections « respiration » |
+| `--ink` | `#243233` | `36 50 51` | `#156669` assombri | Texte courant |
+| `--muted` | `#4F5D5C` | `79 93 92` | — | Texte secondaire |
+| `--teal` | `#156669` | `21 102 105` | **inchangé** | Marque : titres, liens, bouton principal |
+| `--teal-deep` | `#0E4A4C` | `14 74 76` | — | Survol, pied de page |
+| `--orange` | `#F68808` | `246 136 8` | **logo, inchangé** | Logo et décor uniquement |
+| `--terra` | `#A8470C` | `168 71 12` | orange du logo assombri | Accents de texte, bouton « Appeler » |
 
-| Combinaison | Ratio | AA texte courant (≥ 4,5) |
+| Combinaison | Ratio | AA (≥ 4,5) |
 |---|---|---|
-| ink / paper · ink / sand | 13,1 · 11,4 | ✅ |
-| muted / paper · muted / sand | 6,4 · 5,5 | ✅ |
-| sage / paper · sage / sand | 5,5 · 4,8 | ✅ |
-| blanc / sage (bouton) | 6,0 | ✅ |
-| blanc / terra-deep (bouton) | 6,1 | ✅ |
-| terra-deep / paper · terra-deep / sand | 5,7 · 5,0 | ✅ |
-| ink / terra · ink / sage-soft | 6,0 · 7,1 | ✅ |
-| terra / paper · sage-soft / paper | 2,2 · 1,9 | ❌ → **jamais pour du texte**, décor seulement |
+| ink sur paper / sand / leaf | 12,6 · 11,1 · 11,0 | ✅ |
+| muted sur paper / sand / leaf | 6,5 · 5,8 · 5,7 | ✅ |
+| teal sur paper / sand / leaf | 6,3 · 5,6 · 5,5 | ✅ |
+| blanc sur teal · blanc sur teal-deep | 6,7 · 10,0 | ✅ |
+| terra sur paper / sand / leaf | 5,6 · 4,9 · 4,9 | ✅ |
+| blanc sur terra (bouton) | 5,9 | ✅ |
+| ink sur orange (pastille) | 5,4 | ✅ |
+| orange sur paper / blanc | 2,4 · 2,5 | ❌ → **logo et décor seulement**, jamais de texte courant |
+
+Le logo PNG orange garde son contraste de logo (non soumis au seuil AA du texte). Une
+version vectorielle serait préférable (À arbitrer n° 13).
 
 ## 4. Typographie
 
-Auto-hébergée via `next/font` (fichiers servis par le site, aucune requête tierce au
-runtime, aucune dépendance ajoutée).
+Auto-hébergée via `next/font`, sans dépendance ajoutée ni requête tierce au runtime.
 
-- **Titres : Lora** — serif douce et lisible sur petit écran (hauteur d'x correcte,
-  contrairement aux Garamond), italique élégant pour les accroches.
-- **Texte : Nunito Sans** — sans-serif aux formes arrondies, chaleureuse sans être
-  enfantine. Corps **18 px** sur mobile (≥ 16 px), interlignage 1,6.
+- **Titres : Lora**, une serif douce. Elle tient le rôle « posé » à côté d'un logo
+  manuscrit et joyeux. Les titres manuscrits PNG disparaissent : seul le logo garde
+  l'écriture à la main.
+- **Texte : Nunito Sans**, une sans-serif arrondie et chaleureuse. **18 px** sur mobile,
+  interlignage 1,6. Remplace Verdana gras 12 px.
 
 ## 5. Ambiance
 
-Calme, lumineuse, beaucoup d'air. Une photo réelle de Nathalie plutôt que des icônes ;
-des courbes « rivière » en séparateurs de section ; micro-animations discrètes (apparition
-en fondu), contenu **visible par défaut** et rien sous `prefers-reduced-motion`
-(SIGWEB §11). Cibles tactiles ≥ 44 px. Rassurant sans être médical : pas de bleu
-hospitalier, pas de photos de banque d'images de mains jointes.
+Lumineuse et vivante plutôt que « cabinet » : la nature et les animaux de ses photos, un
+orange qui sourit, beaucoup d'air. Des courbes « rivière » en séparateurs de section.
+Micro-animations discrètes, contenu **visible par défaut**, rien sous
+`prefers-reduced-motion` (SIGWEB §11). Cibles tactiles ≥ 44 px. Pas de bleu hospitalier,
+pas de photos de banque d'images : uniquement les siennes.
 
 ## 6. Sections, dans l'ordre (accueil one-page, mobile d'abord)
 
 0. **Bandeau** « Simulation SIGWEB — non contractuelle » (retirable en une ligne).
-1. **En-tête fixe** : « Allo la Vie », téléphone cliquable, burger (4 entrées : La
-   maïeusthésie · Pourquoi consulter · Qui suis-je · Séances) + bouton Contact.
-2. **Accroche** (`<h1>`) : ce que propose Nathalie, où, en une phrase + « Appeler » /
-   « Prendre rendez-vous ».
-3. **Vous vous reconnaissez ?** — 4 cartes : perdu·e et besoin d'écoute · angoisse et
-   besoin de sérénité · schémas qui se répètent · difficulté à se sentir exister.
-4. **La maïeusthésie en 3 points** + lien vers la page détaillée (teaser).
-5. **Qui suis-je** — photo, parcours (ingénieure → reconversion, CNV), citation.
-6. **Les séances** — 3 cartes (individuelle · enfant · couple/famille), visio ou
-   présentiel, « Si le tarif est un frein, parlons-en ». *Montants : voir À arbitrer n° 1.*
-7. **Témoignages** — le témoignage existant (+ ceux à venir).
-8. **FAQ** en accordéon natif (`<details>`, fonctionne sans JavaScript) : première
-   séance · visio ou présentiel · durée d'un accompagnement · mutuelle · confidentialité.
-9. **Où et comment** — zone d'intervention + teaser « une page par commune » (non construit).
-10. **Contact** — formulaire (nom, téléphone, e-mail, type de séance, message, case RGPD),
-    confirmation côté navigateur, **aucun envoi réel** en simulation.
-11. **Pied de page** — coordonnées, Mentions légales, Charte du praticien,
+1. **En-tête fixe** : logo, téléphone cliquable, burger (La maïeusthésie · Pourquoi
+   consulter · Qui suis-je · Séances) + bouton Contact.
+2. **Accroche** (`<h1>`), sur le portrait de Nathalie, avec « Appeler » et « Prendre
+   rendez-vous » ; sous-titre « Et oui j'aime l'idée d'un échange dès le premier contact ».
+3. **Vous vous reconnaissez ?** : les 4 questions de la page « Pourquoi consulter »,
+   en cartes. Photo : les chevaux.
+4. **La maïeusthésie en 3 points** : l'étymologie (« l'art d'être sensible à la naissance
+   du Soi »), le symptôme comme chemin (« tel un fil d'Ariane »), la délicatesse, la
+   liberté et le respect. Lien vers maieusthesie.com, cité sur le site actuel.
+5. **Qui suis-je** : « Le jour où j'ai dit STOP ! », la rivière, 30 ans d'ingénierie, la
+   rupture conventionnelle, les 9 mois de CNV, la découverte de la maïeusthésie. Photo :
+   Nathalie et le cheval.
+6. **Les séances** : 2 cartes (individuelle · couple ou famille), par Zoom ou en
+   présentiel, « Si le tarif est un frein, discutons-en ! ». *Montants : À arbitrer n° 1.*
+7. **Témoignage** : celui de l'accueil (« Dans ce grand passage à vide… »).
+8. **FAQ** en accordéon natif (`<details>`, fonctionne sans JavaScript) : première séance ·
+   Zoom ou présentiel · durée d'un accompagnement · mutuelle · confidentialité (cette
+   dernière tirée de la **charte du praticien**, § 3 « confidentialité »).
+9. **Où et comment** : zone d'intervention + teaser « une page par commune ».
+10. **Contact** : formulaire (nom, téléphone, e-mail, type de séance, message, case RGPD),
+    confirmation dans le navigateur, **aucun envoi réel**.
+11. **Pied de page** : coordonnées, Mentions légales, Charte du praticien,
     Confidentialité, Cookies (pages stub), © année en cours.
-12. **Barre fixe bas d'écran (mobile)** — « Appeler » (`tel:`) · « Prendre RDV ».
+12. **Barre fixe bas d'écran (mobile)** : « Appeler » (`tel:`) · « Prendre RDV ».
 
 ### Adaptations du socle « artisan » du brief (à valider)
 
-- « Formulaire de **devis** » → formulaire de **prise de contact**.
-- **Pas de champ « niveau d'urgence »** : inadapté à un accompagnement de ce type. À la
-  place, une mention sobre près du formulaire : ce n'est pas un service d'urgence, en cas
-  de détresse appeler le 3114 ou le 15.
-- **Avis** : un seul témoignage, pas de plateforme d'avis → pas de note agrégée, ni à
-  l'écran ni en JSON-LD.
-- JSON-LD `ProfessionalService` + `FAQPage`, **uniquement avec des données fournies**
-  (pas d'adresse ni de `geo` tant que ce n'est pas tranché).
+- Le « formulaire de **devis** » devient un formulaire de **prise de contact**.
+- **Pas de champ « niveau d'urgence »** : il est inadapté à ce type d'accompagnement. À sa
+  place, une mention sobre : ce n'est pas un service d'urgence ; en cas de détresse,
+  appeler le 3114 ou le 15.
+- **Avis** : un seul témoignage et aucune plateforme d'avis, donc pas de note agrégée, ni
+  à l'écran ni en JSON-LD.
+- **JSON-LD** `ProfessionalService` + `FAQPage`, avec les seules données publiables (cf.
+  À arbitrer n° 4 et 12).
 
-## 7. À arbitrer (rien n'est tranché par la session)
+## 7. Données relevées sur le site actuel
 
-1. **Tarifs à l'écran.** Le cadre SIGWEB (CLAUDE.md §1, rappel du brief) dit « aucun
-   tarif », la demande de refonte dit « séances & tarifs en cartes », le site actuel les
-   affiche. Point à vérifier avec la cliente : l'information du consommateur sur le prix
-   d'une prestation est encadrée par le Code de la consommation, ce qui pourrait relever
-   de l'exception « mention légale obligatoire ».
-2. **Vocabulaire.** Le titre de *psychothérapeute* est réglementé en France. Comment
-   Nathalie se présente-t-elle exactement (« praticienne en maïeusthésie »,
-   « accompagnement psychologique »…) ? La simulation n'emploiera aucun terme protégé sans
-   confirmation.
-3. **« Présentiel à domicile »** : au domicile de la personne accompagnée, ou chez
-   Nathalie ? Change le texte, la zone desservie et ce qui est publiable (aucun élément
-   identifiant un domicile privé, SIGWEB §15).
-4. **Zone géographique** (ville, communes, département) — absente de toute source.
-5. **Cabinet** : existe-t-il une adresse publique ?
-6. **Prise de RDV** : « Prendre RDV » mène au formulaire, ou à un agenda en ligne
-   (Cal.com / Calendly = service tiers, impact cookies et consentement) ?
-7. **Photos** disponibles (portrait de Nathalie, lieu, ambiance) et droits d'usage.
-8. **Témoignages** : nouveaux témoignages, et accord écrit pour publier l'existant
-   (prénom seul ? initiale ?).
-9. **« 30+ ans »** : 30 ans de carrière d'ingénieure, ou autre chose ? Formulation à
-   valider.
-10. **Formation CNV** : intitulé exact du parcours de 9 mois et formulation acceptable du
-    lien avec l'équipe de Thomas d'Ansembourg (éviter toute affiliation implicite).
-11. **FAQ mutuelle** : réponse factuelle fournie par Nathalie (aucune promesse de prise en
-    charge sans source).
-12. **Mentions légales** : nom complet, statut (micro-entreprise ?), SIRET, adresse de
-    domiciliation, hébergeur.
-13. **Logo et couleurs réelles** : la palette ci-dessus est à recaler dès qu'on peut voir
-    le site ou le logo (accès réseau ou fichiers déposés dans `sources/`).
+| Donnée | Valeur relevée | Page |
+|---|---|---|
+| Nom | **Nathalie Brousse Ducrocq** | Mentions légales |
+| Adresse (éditeur) | 10 impasse de Chanteraine, 91190 Gif-sur-Yvette | Mentions légales |
+| Hébergeur | OVH (sans autre précision) | Mentions légales |
+| Téléphone · e-mail | 06 76 84 36 48 · contact@allolavie.fr | Accueil |
+| Séance individuelle | Zoom ou présentiel (« à votre domicile ou à discuter »), 1h30, 80 € ; enfants 1 h, 60 € | Séance |
+| Couple ou famille | Zoom ou présentiel, 2 h, 100 € | Séance |
+| Parcours | « ingénieure depuis plus de 30 ans », rupture conventionnelle, « parcours de 9 mois en CNV », ateliers « animés par son équipe » (Thomas d'Ansembourg) | Qui suis-je |
+| Accroche actuelle | « Besoin d'un soutien psychothérapeutique ? » | Accueil |
 
-## 8. Restructurations notées, non faites ici
+**Points tranchés par le site :** le présentiel a lieu **au domicile de la personne
+accompagnée** (ou ailleurs, à discuter) ; « 30+ ans » signifie **plus de 30 ans comme
+ingénieure** ; la formation CNV est un **parcours de 9 mois en ateliers animés par
+l'équipe** de Thomas d'Ansembourg.
 
-Pages détaillées SEO (`/maieusthesie`, `/pourquoi-consulter`, `/qui-suis-je`, `/seances`,
-`/contact`, `/mentions-legales`, `/charte`), envoi réel du formulaire (Resend), sitemap,
-redirections 301 depuis les anciennes URLs `.html`, analytics sans cookie : **site de
-production (`apps/site`, lot 1)**, hors simulation.
+## 8. À arbitrer (rien n'est tranché par la session)
+
+1. **Tarifs à l'écran.** Le cadre SIGWEB (CLAUDE.md §1) dit « aucun tarif » ; le site
+   actuel et la demande de refonte les affichent. À vérifier : l'information du
+   consommateur sur le prix d'une prestation est encadrée par le Code de la consommation,
+   ce qui pourrait en faire une « mention légale obligatoire ».
+2. **Vocabulaire.** Le site écrit « soutien psychothérapeutique », « approche de
+   psychothérapie », « démarche thérapeutique ». Le titre de *psychothérapeute* est
+   réglementé en France : faut-il garder ces formulations, ou les adoucir
+   (« accompagnement », « praticienne en maïeusthésie ») ? À trancher par Nathalie.
+3. **Formule sur le tarif.** Le site dit « discutons-en ! », le brief « parlons-en ».
+   La simulation reprend le site, sauf avis contraire.
+4. **Zone géographique.** Le seul lieu connu est l'adresse de l'éditeur, à Gif-sur-Yvette
+   (91). Ce n'est **pas** une zone d'intervention déclarée : quelles communes ou quel
+   rayon pour le présentiel ?
+5. **Adresse publique.** Cette adresse est vraisemblablement un domicile privé (impasse).
+   La garde-t-on dans les mentions légales (une domiciliation est possible) ? Elle n'ira
+   **ni dans le JSON-LD ni sur l'accueil** sans accord explicite.
+6. **Prise de RDV.** « Prendre RDV » mène-t-il au formulaire, ou à un agenda en ligne
+   (Cal.com / Calendly, services tiers, avec un impact sur les cookies) ?
+7. **Photos.** Celles du site font 200 à 450 px de large, trop petites pour un affichage
+   plein écran. Existe-t-il des originaux ? Les droits d'usage sont-ils acquis pour
+   chacune (les paysages sont-ils les siens) ?
+8. **Témoignage.** Accord de la personne pour une republication ? Signature (prénom,
+   initiale, anonyme) ? D'autres témoignages ?
+9. **Écriture inclusive.** Le site utilise le point (perdu.e), le brief le point médian
+   (perdu·e). La simulation passerait au point médian, plus lisible et mieux lu par les
+   lecteurs d'écran. À valider.
+10. **FAQ mutuelle.** Réponse factuelle à fournir par Nathalie, sans aucune promesse de
+    prise en charge.
+11. **FAQ durée d'un accompagnement / première séance.** Aucun contenu source. Textes à
+    fournir ou à valider.
+12. **Mentions légales incomplètes.** Ni SIRET, ni statut, ni coordonnées de l'hébergeur
+    (adresse, téléphone). À fournir pour la version finale.
+13. **Logo.** Seul un PNG existe ; un fichier source (vectoriel) existe-t-il, et qui en
+    détient les droits ? Le site actuel est signé « réalisation : elisaneth ».
+14. **Charte du praticien.** Ce texte semble être la charte commune des praticiens en
+    maïeusthésie : faut-il en citer la source ?
+
+## 9. Restructurations notées, non faites ici
+
+Les pages détaillées SEO (`/maieusthesie`, `/pourquoi-consulter`, `/qui-suis-je`,
+`/seances`, `/contact`, `/mentions-legales`, `/charte`), l'envoi réel du formulaire
+(Resend), le sitemap, les redirections 301 depuis les anciennes URL (`index.html`,
+`maieusthesie.html`, `pourquoi.html`, `qui.html`, `seance.html`, `legales.html`,
+`chartes.html`) et les analytics sans cookie relèvent du **site de production
+(`apps/site`, lot 1)**, hors simulation.
