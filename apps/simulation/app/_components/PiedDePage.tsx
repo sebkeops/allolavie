@@ -1,9 +1,11 @@
+import { Vague } from "./Icones";
 import { contact, pied } from "@/content/site";
 
 export function PiedDePage() {
   const annee = new Date().getFullYear();
   return (
-    <footer className="border-t-8 border-lime bg-teal-deep px-4 pb-24 pt-10 text-paper sm:px-6 md:pb-10">
+    <footer className="relative bg-teal-deep px-4 pb-24 pt-10 text-paper sm:px-6 md:pb-10">
+      <Vague className="text-teal-deep" variante={1} />
       <div className="mx-auto max-w-5xl">
         <p className="font-serif text-xl">{pied.signature}</p>
         <p className="mt-3">

@@ -30,7 +30,26 @@ export function IconeMenu({ className = "h-6 w-6" }: Props) {
 export function Riviere({ className = "" }: Props) {
   return (
     <svg className={`block h-6 w-full ${className}`} viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 20 C 200 0, 400 40, 600 20 S 1000 0, 1200 20" fill="none" stroke="currentColor" strokeWidth={3} />
+      <path d="M0 20 C 200 0, 400 40, 600 20 S 1000 0, 1200 20" fill="none" stroke="currentColor" strokeWidth={3} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+/*
+ * Vague pleine posée sur le haut d'une section, de la couleur de cette section :
+ * le bas de la section précédente devient ondulé. Trois tracés alternés pour
+ * éviter la répétition. Décorative, elle ne pousse rien en largeur (w-full).
+ */
+const traces = [
+  "M0 40 C 240 0, 480 0, 720 22 S 1080 48, 1200 18 L1200 48 L0 48 Z",
+  "M0 22 C 200 46, 420 46, 640 24 S 1000 0, 1200 30 L1200 48 L0 48 Z",
+  "M0 30 C 300 4, 520 40, 780 30 S 1080 6, 1200 26 L1200 48 L0 48 Z",
+];
+
+export function Vague({ className = "", variante = 0 }: Props & { variante?: number }) {
+  return (
+    <svg className={`pointer-events-none absolute inset-x-0 bottom-full block h-8 w-full md:h-12 ${className}`} viewBox="0 0 1200 48" preserveAspectRatio="none" aria-hidden="true">
+      <path d={traces[variante % traces.length]} fill="currentColor" />
     </svg>
   );
 }

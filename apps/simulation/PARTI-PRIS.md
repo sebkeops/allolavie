@@ -87,7 +87,7 @@ Auto-hébergée via `next/font`, sans dépendance ajoutée ni requête tierce au
 ## 5. Ambiance
 
 Lumineuse et vivante plutôt que « cabinet » : la nature et les animaux de ses photos, un
-orange qui sourit, des verts frais repris du site actuel, beaucoup d'air. Des courbes « rivière » en séparateurs de section.
+orange qui sourit, des verts frais repris du site actuel, beaucoup d'air. **Lignes courbes plutôt que rectilignes** (demande de Sébastien) : chaque section commence par une vague pleine de sa couleur, un trait « rivière » orange souligne chaque titre, et les photos de Nathalie prennent une forme de galet.
 Micro-animations discrètes, contenu **visible par défaut**, rien sous
 `prefers-reduced-motion` (SIGWEB §11). Cibles tactiles ≥ 44 px. Pas de bleu hospitalier,
 pas de photos de banque d'images : uniquement les siennes.

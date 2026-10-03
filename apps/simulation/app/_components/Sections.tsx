@@ -18,7 +18,7 @@ import {
 
 export function Accroche() {
   return (
-    <section id="haut" className="bg-gradient-to-b from-leaf to-paper px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
+    <section id="haut" className="bg-gradient-to-b from-leaf to-pale px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
       <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
@@ -30,7 +30,7 @@ export function Accroche() {
           </div>
           <p className="mt-5 font-serif italic text-muted">{contact.phraseContact}</p>
         </div>
-        <ImageDouce {...images.portrait} priority className="mx-auto w-full shadow-xl ring-8 ring-lime" />
+        <ImageDouce {...images.portrait} priority galet className="mx-auto w-full shadow-xl ring-8 ring-lime" />
       </div>
     </section>
   );
@@ -38,7 +38,7 @@ export function Accroche() {
 
 export function Pourquoi() {
   return (
-    <Section id="pourquoi" titre={pourquoi.titre}>
+    <Section id="pourquoi" titre={pourquoi.titre} vague={1}>
       <p className="text-muted">{pourquoi.intro}</p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2">
         {pourquoi.motifs.map((m) => (
@@ -61,7 +61,7 @@ export function Pourquoi() {
 
 export function Maieusthesie() {
   return (
-    <Section id="maieusthesie" titre={maieusthesie.titre} fond="leaf">
+    <Section id="maieusthesie" titre={maieusthesie.titre} fond="leaf" vague={2}>
       <p className="max-w-2xl">{maieusthesie.intro}</p>
       <ol className="mt-8 grid gap-6 md:grid-cols-3">
         {maieusthesie.points.map((p, i) => (
@@ -86,7 +86,7 @@ export function Maieusthesie() {
 
 export function QuiSuisJe() {
   return (
-    <Section id="qui" titre={qui.titre} surtitre={qui.surtitre}>
+    <Section id="qui" titre={qui.titre} surtitre={qui.surtitre} vague={3}>
       <div className="grid gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
           <blockquote className="border-l-4 border-lime pl-5 font-serif text-2xl italic leading-snug text-teal">
@@ -98,7 +98,7 @@ export function QuiSuisJe() {
             </p>
           ))}
         </div>
-        <ImageDouce {...images.cheval} className="mx-auto w-full self-start" />
+        <ImageDouce {...images.cheval} galet className="mx-auto w-full self-start" />
       </div>
       <Riviere className="my-10 text-lime" />
       <ul className="grid gap-6 md:grid-cols-2">
@@ -115,7 +115,7 @@ export function QuiSuisJe() {
 
 export function Seances() {
   return (
-    <Section id="seances" titre={seances.titre} fond="pale">
+    <Section id="seances" titre={seances.titre} fond="pale" vague={4}>
       <p>{seances.intro}</p>
       <ul className="mt-8 grid gap-4 md:grid-cols-3">
         {seances.formules.map((f) => (
@@ -149,7 +149,7 @@ export function Seances() {
 
 export function Temoignages() {
   return (
-    <Section titre={temoignages.titre} id="temoignages">
+    <Section titre={temoignages.titre} id="temoignages" vague={5}>
       {temoignages.liste.map((t) => (
         <figure key={t.texte.slice(0, 20)} className="relative rounded-3xl bg-leaf p-6 md:p-10">
           <span aria-hidden="true" className="absolute -top-6 left-6 font-serif text-7xl leading-none text-orange">
@@ -165,7 +165,7 @@ export function Temoignages() {
 
 export function Faq() {
   return (
-    <Section id="faq" titre={faq.titre} fond="pale">
+    <Section id="faq" titre={faq.titre} fond="pale" vague={6}>
       <div className="divide-y divide-paper overflow-hidden rounded-3xl bg-paper/60">
         {faq.questions.map((q) => (
           <details key={q.question} className="group px-5">
@@ -190,7 +190,7 @@ export function Faq() {
 
 export function Zone() {
   return (
-    <Section id="zone" titre={zone.titre}>
+    <Section id="zone" titre={zone.titre} vague={7}>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-3xl bg-leaf p-6">
           <h3 className="font-serif text-xl text-teal">{zone.visio.titre}</h3>
