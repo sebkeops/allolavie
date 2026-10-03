@@ -149,7 +149,7 @@ export function Seances() {
       </ul>
       <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-5 text-night md:flex-row md:items-center md:justify-between md:p-8">
         <p className="font-serif text-2xl italic md:text-3xl">{seances.frein}</p>
-        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="inline-flex min-h-12 max-w-full items-center gap-2 rounded-full bg-night px-5 py-3 font-bold text-paper hover:bg-teal-deep md:shrink-0">
+        <a href={contact.telephoneLien} className="inline-flex min-h-12 max-w-full items-center gap-2 rounded-full bg-night px-5 py-3 font-bold text-paper hover:bg-teal-deep md:shrink-0">
           <IconeTelephone />
           {seances.ctaFrein}
         </a>
