@@ -17,7 +17,7 @@ type Props = {
 export function ImageDouce({ src, width, height, alt, className = "", priority }: Props) {
   return (
     <div
-      className={`overflow-hidden rounded-3xl bg-gradient-to-br from-leaf to-sand ${className}`}
+      className={`overflow-hidden rounded-3xl bg-gradient-to-br from-anis to-pale ${className}`}
       style={{ maxWidth: width, aspectRatio: `${width} / ${height}` }}
     >
       <Image src={src} width={width} height={height} alt={alt} priority={priority} className="h-full w-full object-cover" sizes={`(max-width: ${width}px) 100vw, ${width}px`} />

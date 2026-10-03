@@ -17,13 +17,13 @@ export function FormulaireContact() {
   }
 
   const champ =
-    "mt-1 block w-full min-h-12 rounded-2xl border-2 border-sand bg-paper px-4 py-2 text-ink focus:border-teal focus:outline-none";
+    "mt-1 block w-full min-h-12 rounded-2xl border-2 border-lime bg-paper px-4 py-2 text-ink focus:border-teal focus:outline-none";
   const etiquette = "block font-bold text-teal";
   const oblig = <span className="font-normal text-muted"> ({formulaire.obligatoire})</span>;
 
   if (envoye) {
     return (
-      <div role="status" className="rounded-3xl bg-leaf p-6">
+      <div role="status" className="rounded-3xl bg-anis p-6">
         <p className="font-serif text-2xl text-teal">{formulaire.confirmationTitre}</p>
         <p className="mt-2">{formulaire.confirmationTexte}</p>
         <BoutonAppeler texte={libelles.appeler} className="mt-4" />

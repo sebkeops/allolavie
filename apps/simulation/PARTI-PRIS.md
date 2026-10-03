@@ -37,39 +37,48 @@ personne, la métaphore de la rivière, et le message sur le tarif.
 | Mentions légales et charte dans le menu principal (7 entrées) | Pied de page ; menu de 4 entrées + burger |
 | Photos de 200 à 450 px de large | Utilisées en petit format, en attendant les originaux (§8, à demander à Nathalie) |
 
-## 3. Palette — l'existant, adouci
+## 3. Palette — l'identité du site actuel, conservée
 
-La palette naît de l'existant et rejoint la direction « sauge / sable / terracotta » :
-le **bleu-vert** du texte devient la couleur de marque, l'**orange** du logo est gardé pour
-la signature et décliné en **terre cuite** lisible, et le **vert feuillage** du fond devient
-un fond pâle. Jetons déclarés en triplets RVB dans `app/globals.css`, contrastes
-**calculés** (WCAG 2.x).
+> **Révision après la première recette** : la première version (sable, terre cuite)
+> s'éloignait trop du vert dominant du site. Décision de Sébastien : **garder la même
+> identité visuelle**. On conserve donc le fond feuillage, le vert anis du menu, le
+> texte bleu-vert et l'orange du logo ; seules la lisibilité et la mise en page changent.
+
+- **Fond de page** : la photo de feuillage du site actuel (`fond-feuillage.webp`), fixe
+  derrière le contenu.
+- **Contenu** dans des panneaux clairs semi-opaques posés sur la photo. Le texte ne
+  repose jamais directement sur la photo : c'est ce qui garantit l'AA.
+- **Vert anis** (`#ADDD4B`, celui des cases du menu actuel) : entrées de menu encadrées
+  de bleu-vert, pied de page, liserés.
+- **Orange du logo** : logo en grand en tête de page, bouton « Appeler », pastilles.
 
 | Jeton | Hex | Triplet | Origine | Rôle |
 |---|---|---|---|---|
-| `--paper` | `#FBF8F2` | `251 248 242` | — | Fond principal |
-| `--sand` | `#F1EADC` | `241 234 220` | — | Sections alternées, cartes |
-| `--leaf` | `#E4EDCF` | `228 237 207` | fond feuillage, très adouci | Sections « respiration » |
-| `--ink` | `#243233` | `36 50 51` | `#156669` assombri | Texte courant |
-| `--muted` | `#4F5D5C` | `79 93 92` | — | Texte secondaire |
-| `--teal` | `#156669` | `21 102 105` | **inchangé** | Marque : titres, liens, bouton principal |
-| `--teal-deep` | `#0E4A4C` | `14 74 76` | — | Survol, pied de page |
-| `--orange` | `#F68808` | `246 136 8` | **logo, inchangé** | Logo et décor uniquement |
-| `--terra` | `#A8470C` | `168 71 12` | orange du logo assombri | Accents de texte, bouton « Appeler » |
+| `--paper` | `#F8FBEC` | `248 251 236` | — | Panneaux (90 % d'opacité sur la photo) |
+| `--pale` | `#E8F5C8` | `232 245 200` | fond feuillage, éclairci | Panneaux (92 %), cartes |
+| `--anis` | `#CDEB7A` | `205 235 122` | menu actuel, éclairci | Cartes, témoignage |
+| `--lime` | `#ADDD4B` | `173 221 75` | **menu actuel, inchangé** | Menu, pied de page, liserés |
+| `--ink` | `#1B4446` | `27 68 70` | `#156669` assombri | Texte courant |
+| `--muted` | `#385852` | `56 88 82` | — | Texte secondaire |
+| `--teal` | `#156669` | `21 102 105` | **texte actuel, inchangé** | Titres, liens, bouton principal |
+| `--teal-deep` | `#0E4A4C` | `14 74 76` | — | Texte sur vert anis, survol |
+| `--night` | `#0A2A2B` | `10 42 43` | — | Texte sur orange |
+| `--orange` | `#F68808` | `246 136 8` | **logo, inchangé** | Logo, bouton « Appeler », pastilles |
+| `--terra` | `#A8470C` | `168 71 12` | orange assombri | Petits accents de texte sur panneau clair |
+
+Les contrastes sur panneau sont calculés **au pixel le plus sombre de la photo**
+(`#73A84E`), c'est-à-dire dans le pire cas :
 
 | Combinaison | Ratio | AA (≥ 4,5) |
 |---|---|---|
-| ink sur paper / sand / leaf | 12,6 · 11,1 · 11,0 | ✅ |
-| muted sur paper / sand / leaf | 6,5 · 5,8 · 5,7 | ✅ |
-| teal sur paper / sand / leaf | 6,3 · 5,6 · 5,5 | ✅ |
-| blanc sur teal · blanc sur teal-deep | 6,7 · 10,0 | ✅ |
-| terra sur paper / sand / leaf | 5,6 · 4,9 · 4,9 | ✅ |
-| blanc sur terra (bouton) | 5,9 | ✅ |
-| ink sur orange (pastille) | 5,4 | ✅ |
-| orange sur paper / blanc | 2,4 · 2,5 | ❌ → **logo et décor seulement**, jamais de texte courant |
-
-Le logo PNG orange garde son contraste de logo (non soumis au seuil AA du texte). Une
-version vectorielle serait préférable (§8).
+| ink · teal · muted sur panneau paper 90 % | 9,4 · 5,9 · 6,9 | ✅ |
+| ink · teal · muted sur panneau pale 92 % | 8,8 · 5,5 · 6,4 | ✅ |
+| terra sur panneau paper · pale | 5,2 · 4,8 | ✅ |
+| teal-deep sur lime (menu, pied de page) | 6,3 | ✅ |
+| night sur orange (bouton « Appeler ») | 6,1 | ✅ |
+| blanc sur teal (bouton RDV) | 6,7 | ✅ |
+| teal sur lime | 4,2 | ⚠️ grands titres seulement (≥ 3:1), jamais du texte courant |
+| orange sur fond clair | 2,4 | ❌ logo et décor seulement |
 
 ## 4. Typographie
 
@@ -84,7 +93,7 @@ Auto-hébergée via `next/font`, sans dépendance ajoutée ni requête tierce au
 ## 5. Ambiance
 
 Lumineuse et vivante plutôt que « cabinet » : la nature et les animaux de ses photos, un
-orange qui sourit, beaucoup d'air. Des courbes « rivière » en séparateurs de section.
+orange qui sourit, le feuillage lumineux du site actuel en fond. Des courbes « rivière » en séparateurs de section.
 Micro-animations discrètes, contenu **visible par défaut**, rien sous
 `prefers-reduced-motion` (SIGWEB §11). Cibles tactiles ≥ 44 px. Pas de bleu hospitalier,
 pas de photos de banque d'images : uniquement les siennes.

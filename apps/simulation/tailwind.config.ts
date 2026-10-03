@@ -15,11 +15,13 @@ const config: Config = {
     extend: {
       colors: {
         paper: jeton("paper"),
-        sand: jeton("sand"),
-        leaf: jeton("leaf"),
+        pale: jeton("pale"),
+        anis: jeton("anis"),
+        lime: jeton("lime"),
         ink: jeton("ink"),
         muted: jeton("muted"),
         teal: { DEFAULT: jeton("teal"), deep: jeton("teal-deep") },
+        night: jeton("night"),
         orange: jeton("orange"),
         terra: jeton("terra"),
       },

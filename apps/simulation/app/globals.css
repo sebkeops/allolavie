@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 /*
- * Jetons de couleur — triplets RVB. Palette dérivée de l'existant
- * (PARTI-PRIS.md §3) : #156669 conservé, orange du logo réservé au décor.
- * Contrastes calculés : orange (`--orange`) JAMAIS pour du texte.
+ * Jetons de couleur — triplets RVB. Identité du site actuel conservée
+ * (PARTI-PRIS.md §3) : fond feuillage, vert anis du menu, texte #156669,
+ * orange du logo. Contrastes calculés au pixel le plus sombre du fond photo.
  */
 :root {
-  --paper: 251 248 242;    /* #FBF8F2 fond principal */
-  --sand: 241 234 220;     /* #F1EADC sections alternées, cartes */
-  --leaf: 228 237 207;     /* #E4EDCF fond feuillage adouci */
-  --ink: 36 50 51;         /* #243233 texte courant */
-  --muted: 79 93 92;       /* #4F5D5C texte secondaire */
-  --teal: 21 102 105;      /* #156669 marque (couleur du site actuel) */
-  --teal-deep: 14 74 76;   /* #0E4A4C survol, pied de page */
-  --orange: 246 136 8;     /* #F68808 orange du logo — décor uniquement */
-  --terra: 168 71 12;      /* #A8470C accent texte, bouton « Appeler » */
+  --paper: 248 251 236;    /* #F8FBEC panneaux de contenu (sur la photo) */
+  --pale: 232 245 200;     /* #E8F5C8 panneaux / cartes vert pâle */
+  --anis: 205 235 122;     /* #CDEB7A vert anis clair */
+  --lime: 173 221 75;      /* #ADDD4B vert anis du menu actuel */
+  --ink: 27 68 70;         /* #1B4446 texte courant (bleu-vert sombre) */
+  --muted: 56 88 82;       /* #385852 texte secondaire */
+  --teal: 21 102 105;      /* #156669 couleur du texte du site actuel */
+  --teal-deep: 14 74 76;   /* #0E4A4C survol, texte sur vert anis */
+  --night: 10 42 43;       /* #0A2A2B texte sur orange */
+  --orange: 246 136 8;     /* #F68808 orange du logo — fonds et décor, jamais du texte */
+  --terra: 168 71 12;      /* #A8470C petits accents de texte sur panneau clair */
 }
 
 /*
@@ -38,7 +40,7 @@ html {
 
 body {
   color: rgb(var(--ink));
-  background: rgb(var(--paper));
+  background: rgb(var(--lime));
   font-size: 1.125rem;
   line-height: 1.6;
 }
@@ -49,4 +51,16 @@ summary {
 }
 summary::-webkit-details-marker {
   display: none;
+}
+
+/*
+ * Fond feuillage du site actuel, fixe derrière le contenu. Pseudo-élément
+ * `position: fixed` plutôt que `background-attachment: fixed` (mal géré sur iOS).
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgb(var(--lime)) url("/simulation/fond-feuillage.webp") center / cover no-repeat;
 }

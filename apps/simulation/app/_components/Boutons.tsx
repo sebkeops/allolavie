@@ -6,7 +6,7 @@ const base =
 
 export function BoutonAppeler({ texte, className = "" }: { texte: string; className?: string }) {
   return (
-    <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className={`${base} bg-terra text-white hover:bg-terra/90 ${className}`}>
+    <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className={`${base} bg-orange text-night hover:bg-orange/90 ${className}`}>
       <IconeTelephone />
       {texte}
     </a>

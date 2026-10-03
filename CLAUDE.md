@@ -57,13 +57,15 @@ Décidé : le vocabulaire du site (« soutien psychothérapeutique ») est **con
 
 ## 5. Identité visuelle
 
-Validée par Sébastien (lot 0). Détail et contrastes : `apps/simulation/PARTI-PRIS.md §3`.
+**On garde l'identité du site actuel** (décision de Sébastien après la première recette :
+une palette sable / terre cuite a été refusée). Fond feuillage photo, vert anis du menu
+(`#ADDD4B`), texte bleu-vert (`#156669`), logo orange (`#F68808`). Jetons, rôles et
+contrastes : `apps/simulation/PARTI-PRIS.md §3`.
 
-- `--teal` `21 102 105` (#156669, couleur du site actuel) : marque, titres, bouton principal.
-- `--orange` `246 136 8` (#F68808, logo) : **logo et décor uniquement** (2,4:1 sur fond clair).
-- `--terra` `168 71 12` (#A8470C) : accents de texte, bouton « Appeler » (5,9:1 en blanc).
-- Fonds `--paper` `251 248 242`, `--sand` `241 234 220`, `--leaf` `228 237 207` ; texte
-  `--ink` `36 50 51`, `--muted` `79 93 92`.
+- Le texte repose **toujours** sur un panneau clair semi-opaque, jamais directement sur
+  la photo : l'AA est calculé au pixel le plus sombre du fond.
+- L'orange n'est jamais une couleur de texte (2,4:1) : logo, bouton « Appeler » (texte
+  `--night`), pastilles.
 - Typo : Lora (titres) + Nunito Sans (texte, 18 px), via `next/font`.
 
 ## 6. Verrou d'indexation
@@ -77,9 +79,10 @@ Principe dans `SIGWEB.md §16`. Les emplacements qui portent le verrou pour ce p
 
 ## 7. Éléments à ne pas « corriger »
 
-<Lister ici les choix qui ont l'air d'oublis mais n'en sont pas, pour qu'aucune session
-ultérieure ne les « répare » (ex. un logo rendu d'une certaine façon, une donnée absente
-volontairement). Vide au départ.>
+- **Le fond photo de feuillage et le vert vif sont voulus** : c'est l'identité de la
+  cliente. Ne pas les « adoucir » vers une palette neutre ou sable.
+- Le logo apparaît deux fois sur l'accueil (en-tête + en grand sur le feuillage) : la
+  seconde occurrence est décorative (`aria-hidden`), comme en tête du site actuel.
 
 ## 8. Formulaire de devis
 
