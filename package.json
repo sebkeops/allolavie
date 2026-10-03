@@ -1,0 +1,26 @@
+{
+  "name": "allolavie",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Monorepo client allolavie (SIGWEB) — simulation + site de production.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:site": "npm run dev --workspace=apps/site",
+    "dev:simulation": "npm run dev --workspace=apps/simulation",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "start:site": "npm run start --workspace=apps/site"
+  },
+  "devDependencies": {
+    "turbo": "2.10.8"
+  },
+  "packageManager": "npm@11.16.0",
+  "engines": {
+    "node": "22.x"
+  }
+}

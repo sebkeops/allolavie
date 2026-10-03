@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Jetons de couleur — triplets RVB NEUTRES par défaut (placeholder du starter).
+ * À remplacer par la palette dérivée de l'identité du client au LOT 0.
+ */
+:root {
+  --brand: 14 55 66;        /* ardoise neutre */
+  --brand-accent: 37 99 235; /* accent neutre */
+  --ink: 17 24 39;          /* texte */
+  --paper: 255 255 255;     /* fond */
+}
+
+/*
+ * Garde-fou débordement horizontal sur l'élément racine (cf. SIGWEB.md §10) :
+ * `hidden`, pas `clip`, pour ne pas bloquer le défilement vertical.
+ */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--ink));
+  background: rgb(var(--paper));
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
