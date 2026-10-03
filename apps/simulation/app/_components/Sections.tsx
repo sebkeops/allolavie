@@ -1,6 +1,6 @@
 import { BoutonAppeler, BoutonRdv } from "./Boutons";
 import { ImageDouce } from "./ImageDouce";
-import { Riviere } from "./Icones";
+import { IconeCalendrier, IconeCarte, IconeHorloge, IconeMaison, IconeRepere, IconeTelephone, IconeVisio, Riviere } from "./Icones";
 import { Section } from "./Section";
 import {
   contact,
@@ -113,36 +113,53 @@ export function QuiSuisJe() {
   );
 }
 
+/*
+ * Section mise en avant (demande de Sébastien) : seule section sur fond sombre,
+ * prix en grand, appel à l'action et message sur le tarif en encart orange.
+ * Contrastes : paper / leaf sur teal-deep 9,7 / 8,1 ; night sur orange 6,1.
+ */
 export function Seances() {
   return (
-    <Section id="seances" titre={seances.titre} fond="pale" vague={4}>
-      <p>{seances.intro}</p>
-      <ul className="mt-8 grid gap-4 md:grid-cols-3">
-        {seances.formules.map((f) => (
-          <li key={f.titre} className="flex flex-col rounded-3xl bg-paper p-6 shadow-sm">
-            <h3 className="font-serif text-2xl text-teal">{f.titre}</h3>
-            <p className="text-muted">{f.detail}</p>
-            <dl className="mt-6 grid grid-cols-2 gap-2 border-t border-pale pt-4">
-              <div>
-                <dt className="text-sm text-muted">{seances.libelleDuree}</dt>
-                <dd className="text-xl font-bold">{f.duree}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">{seances.libelleTarif}</dt>
-                <dd className="text-xl font-bold text-terra">{f.tarif}</dd>
-              </div>
-            </dl>
-          </li>
-        ))}
-      </ul>
+    <Section id="seances" titre={seances.titre} surtitre={seances.surtitre} fond="profond" vague={4}>
+      <p className="text-leaf">{seances.intro}</p>
       <ul className="mt-6 flex flex-wrap gap-2">
-        {seances.modalites.map((m) => (
-          <li key={m} className="rounded-full bg-leaf px-4 py-2 text-base font-bold text-teal">
+        {seances.modalites.map((m, i) => (
+          <li key={m} className="inline-flex items-center gap-2 rounded-full border-2 border-lime px-4 py-1.5 text-base font-bold text-paper">
+            {i === 0 ? <IconeVisio className="h-5 w-5 text-lime" /> : <IconeMaison className="h-5 w-5 text-lime" />}
             {m}
           </li>
         ))}
       </ul>
-      <p className="mt-8 font-serif text-2xl italic text-terra">{seances.frein}</p>
+      <ul className="mt-10 grid gap-5 md:grid-cols-3">
+        {seances.formules.map((f) => (
+          <li key={f.titre} className="flex flex-col rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-paper p-6 text-ink shadow-xl">
+            <h3 className="font-serif text-2xl text-teal">{f.titre}</h3>
+            <p className="text-muted">{f.detail}</p>
+            <p className="mt-6 flex items-baseline gap-2">
+              <span className="font-serif text-5xl font-bold text-teal">{f.tarif}</span>
+              <span className="text-muted">{seances.parSeance}</span>
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 self-start rounded-full bg-leaf px-4 py-1.5 font-bold text-teal-deep">
+              <IconeHorloge />
+              <span className="sr-only">{seances.libelleDuree} : </span>
+              {f.duree}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-6 text-night md:flex-row md:items-center md:justify-between md:p-8">
+        <p className="font-serif text-2xl italic md:text-3xl">{seances.frein}</p>
+        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-night px-6 py-3 font-bold text-paper hover:bg-teal-deep">
+          <IconeTelephone />
+          {seances.ctaFrein}
+        </a>
+      </div>
+      <div className="mt-8 text-center">
+        <a href="#contact" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-paper px-8 py-3 font-bold text-teal hover:bg-leaf">
+          <IconeCalendrier />
+          {seances.ctaRdv}
+        </a>
+      </div>
     </Section>
   );
 }
@@ -188,27 +205,48 @@ export function Faq() {
   );
 }
 
+/* Pastille ronde qui porte un picto (orange du logo, picto en `night`). */
+function Pastille({ children }: { children: React.ReactNode }) {
+  return (
+    <span aria-hidden="true" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md">
+      {children}
+    </span>
+  );
+}
+
 export function Zone() {
   return (
     <Section id="zone" titre={zone.titre} vague={7}>
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-3xl bg-leaf p-6">
-          <h3 className="font-serif text-xl text-teal">{zone.visio.titre}</h3>
+        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6">
+          <Pastille>
+            <IconeVisio />
+          </Pastille>
+          <h3 className="mt-4 font-serif text-2xl text-teal">{zone.visio.titre}</h3>
           <p className="mt-2">{zone.visio.texte}</p>
         </div>
-        <div className="rounded-3xl bg-leaf p-6">
-          <h3 className="font-serif text-xl text-teal">{zone.presentiel.titre}</h3>
+        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6">
+          <Pastille>
+            <IconeMaison />
+          </Pastille>
+          <h3 className="mt-4 font-serif text-2xl text-teal">{zone.presentiel.titre}</h3>
           <p className="mt-2">{zone.presentiel.texte}</p>
-          <p className="mt-3 rounded-2xl border-2 border-dashed border-teal/40 px-4 py-2 text-base text-muted">
+          <p className="mt-4 flex items-center gap-2 rounded-2xl border-2 border-dashed border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
+            <IconeRepere className="h-5 w-5 shrink-0 text-teal" />
             {zone.presentiel.zonePlaceholder}
           </p>
         </div>
       </div>
-      <div className="mt-6 flex flex-col gap-6 rounded-3xl bg-pale p-6 sm:flex-row sm:items-center">
+      <div className="mt-6 flex flex-col gap-6 rounded-[2rem] bg-pale p-6 sm:flex-row sm:items-center">
         <ImageDouce {...images.montagne} className="w-full sm:w-56 sm:shrink-0" />
         <div className="min-w-0">
-          <h3 className="font-serif text-xl text-teal">{zone.teaser.titre}</h3>
-          <p className="mt-2">{zone.teaser.texte}</p>
+          <h3 className="flex items-center gap-3 font-serif text-xl text-teal">
+            <Pastille>
+              <IconeCarte />
+            </Pastille>
+            {zone.teaser.titre}
+          </h3>
+          <p className="mt-3">{zone.teaser.texte}</p>
         </div>
       </div>
     </Section>

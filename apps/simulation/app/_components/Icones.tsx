@@ -18,6 +18,60 @@ export function IconeCalendrier({ className = "h-5 w-5" }: Props) {
   );
 }
 
+export function IconeHorloge({ className = "h-5 w-5" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
+const trait = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+export function IconeVisio({ className = "h-7 w-7" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" {...trait} aria-hidden="true">
+      <rect x="2" y="5" width="14" height="14" rx="3" />
+      <path d="m16 10 6-3.5v11L16 14" />
+    </svg>
+  );
+}
+
+export function IconeMaison({ className = "h-7 w-7" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" {...trait} aria-hidden="true">
+      <path d="M3 11 12 3l9 8" />
+      <path d="M5 9.5V21h14V9.5" />
+      <path d="M10 21v-6h4v6" />
+    </svg>
+  );
+}
+
+export function IconeRepere({ className = "h-5 w-5" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" {...trait} aria-hidden="true">
+      <path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
+export function IconeCarte({ className = "h-7 w-7" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" {...trait} aria-hidden="true">
+      <path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5z" />
+      <path d="M9 4v13.5M15 6.5V20" />
+    </svg>
+  );
+}
+
 export function IconeMenu({ className = "h-6 w-6" }: Props) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">

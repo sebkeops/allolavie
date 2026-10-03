@@ -163,17 +163,20 @@ export const qui = {
 };
 
 export const seances = {
+  surtitre: "Séances et tarifs",
   titre: "Les séances",
   intro: "Par Zoom ou en présentiel, à votre domicile — ou ailleurs, on en discute.",
   formules: [
     { titre: "Séance individuelle", duree: "1h30", tarif: "80 €", detail: "Pour les adultes" },
     { titre: "Séance enfant", duree: "1h", tarif: "60 €", detail: "Pour les enfants" },
-    { titre: "Couple ou famille", duree: "2h", tarif: "100 €", detail: "Ensemble, chacun à sa place" },
+    { titre: "Couple ou famille", duree: "2h", tarif: "100 €", detail: "À deux ou en famille" },
   ],
   modalites: ["En visio (Zoom)", "En présentiel, à votre domicile"],
   libelleDuree: "Durée",
-  libelleTarif: "Tarif",
+  parSeance: "la séance",
   frein: "Si le tarif est un frein, discutons-en !",
+  ctaFrein: "M'appeler pour en parler",
+  ctaRdv: "Prendre rendez-vous",
 };
 
 export const temoignages = {

@@ -44,8 +44,11 @@ Une fois la simulation validée par le client, elle reste montrable telle quelle
 
 ## 3. Design
 
-<Le design est-il validé sans réserve ? Les retours attendus portent-ils sur le contenu
-ou aussi sur la forme ? À préciser après le parti pris.>
+**V3 retenue par Sébastien** (« on reste sur cette version, à consolider ») : on ne
+change plus de direction, on peaufine. Formes ondulées (vagues entre sections, trait
+« rivière » sous les titres, photos en galet), pictos dans des pastilles orange, et la
+section **Séances mise en avant** : seule section sur fond sombre (`teal-deep`), prix en
+grand, encart orange « Si le tarif est un frein, discutons-en ! ».
 
 ## 4. Données non tranchées
 
