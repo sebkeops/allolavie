@@ -35,7 +35,7 @@ personne, la métaphore de la rivière, et le message sur le tarif.
 | Aucune zone d'intervention mentionnée | Section « Où et comment » + teaser « une page par commune » (non construit) |
 | Pas de bouton d'appel ; le numéro n'est pas cliquable | Téléphone cliquable dans l'en-tête fixe + barre bas d'écran « Appeler / Prendre RDV » |
 | Mentions légales et charte dans le menu principal (7 entrées) | Pied de page ; menu de 4 entrées + burger |
-| Photos de 200 à 450 px de large | Utilisées en petit format, en attendant les originaux (À arbitrer n° 7) |
+| Photos de 200 à 450 px de large | Utilisées en petit format, en attendant les originaux (§8, à demander à Nathalie) |
 
 ## 3. Palette — l'existant, adouci
 
@@ -69,7 +69,7 @@ un fond pâle. Jetons déclarés en triplets RVB dans `app/globals.css`, contras
 | orange sur paper / blanc | 2,4 · 2,5 | ❌ → **logo et décor seulement**, jamais de texte courant |
 
 Le logo PNG orange garde son contraste de logo (non soumis au seuil AA du texte). Une
-version vectorielle serait préférable (À arbitrer n° 13).
+version vectorielle serait préférable (§8).
 
 ## 4. Typographie
 
@@ -104,8 +104,8 @@ pas de photos de banque d'images : uniquement les siennes.
 5. **Qui suis-je** : « Le jour où j'ai dit STOP ! », la rivière, 30 ans d'ingénierie, la
    rupture conventionnelle, les 9 mois de CNV, la découverte de la maïeusthésie. Photo :
    Nathalie et le cheval.
-6. **Les séances** : 2 cartes (individuelle · couple ou famille), par Zoom ou en
-   présentiel, « Si le tarif est un frein, discutons-en ! ». *Montants : À arbitrer n° 1.*
+6. **Les séances** : 2 cartes (individuelle · couple ou famille), durées et **tarifs
+   affichés**, par Zoom ou en présentiel, « Si le tarif est un frein, discutons-en ! ».
 7. **Témoignage** : celui de l'accueil (« Dans ce grand passage à vide… »).
 8. **FAQ** en accordéon natif (`<details>`, fonctionne sans JavaScript) : première séance ·
    Zoom ou présentiel · durée d'un accompagnement · mutuelle · confidentialité (cette
@@ -125,8 +125,8 @@ pas de photos de banque d'images : uniquement les siennes.
   appeler le 3114 ou le 15.
 - **Avis** : un seul témoignage et aucune plateforme d'avis, donc pas de note agrégée, ni
   à l'écran ni en JSON-LD.
-- **JSON-LD** `ProfessionalService` + `FAQPage`, avec les seules données publiables (cf.
-  À arbitrer n° 4 et 12).
+- **JSON-LD** `ProfessionalService` + `FAQPage`, avec les seules données publiables :
+  ni adresse ni `geo` tant que la zone et l'adresse ne sont pas tranchées (§8).
 
 ## 7. Données relevées sur le site actuel
 
@@ -146,44 +146,43 @@ accompagnée** (ou ailleurs, à discuter) ; « 30+ ans » signifie **plus de 30 
 ingénieure** ; la formation CNV est un **parcours de 9 mois en ateliers animés par
 l'équipe** de Thomas d'Ansembourg.
 
-## 8. À arbitrer (rien n'est tranché par la session)
+## 8. Arbitrages
 
-1. **Tarifs à l'écran.** Le cadre SIGWEB (CLAUDE.md §1) dit « aucun tarif » ; le site
-   actuel et la demande de refonte les affichent. À vérifier : l'information du
-   consommateur sur le prix d'une prestation est encadrée par le Code de la consommation,
-   ce qui pourrait en faire une « mention légale obligatoire ».
-2. **Vocabulaire.** Le site écrit « soutien psychothérapeutique », « approche de
-   psychothérapie », « démarche thérapeutique ». Le titre de *psychothérapeute* est
-   réglementé en France : faut-il garder ces formulations, ou les adoucir
-   (« accompagnement », « praticienne en maïeusthésie ») ? À trancher par Nathalie.
-3. **Formule sur le tarif.** Le site dit « discutons-en ! », le brief « parlons-en ».
-   La simulation reprend le site, sauf avis contraire.
-4. **Zone géographique.** Le seul lieu connu est l'adresse de l'éditeur, à Gif-sur-Yvette
-   (91). Ce n'est **pas** une zone d'intervention déclarée : quelles communes ou quel
-   rayon pour le présentiel ?
-5. **Adresse publique.** Cette adresse est vraisemblablement un domicile privé (impasse).
-   La garde-t-on dans les mentions légales (une domiciliation est possible) ? Elle n'ira
-   **ni dans le JSON-LD ni sur l'accueil** sans accord explicite.
-6. **Prise de RDV.** « Prendre RDV » mène-t-il au formulaire, ou à un agenda en ligne
-   (Cal.com / Calendly, services tiers, avec un impact sur les cookies) ?
-7. **Photos.** Celles du site font 200 à 450 px de large, trop petites pour un affichage
-   plein écran. Existe-t-il des originaux ? Les droits d'usage sont-ils acquis pour
-   chacune (les paysages sont-ils les siens) ?
-8. **Témoignage.** Accord de la personne pour une republication ? Signature (prénom,
-   initiale, anonyme) ? D'autres témoignages ?
-9. **Écriture inclusive.** Le site utilise le point (perdu.e), le brief le point médian
-   (perdu·e). La simulation passerait au point médian, plus lisible et mieux lu par les
-   lecteurs d'écran. À valider.
-10. **FAQ mutuelle.** Réponse factuelle à fournir par Nathalie, sans aucune promesse de
-    prise en charge.
-11. **FAQ durée d'un accompagnement / première séance.** Aucun contenu source. Textes à
-    fournir ou à valider.
-12. **Mentions légales incomplètes.** Ni SIRET, ni statut, ni coordonnées de l'hébergeur
-    (adresse, téléphone). À fournir pour la version finale.
-13. **Logo.** Seul un PNG existe ; un fichier source (vectoriel) existe-t-il, et qui en
-    détient les droits ? Le site actuel est signé « réalisation : elisaneth ».
-14. **Charte du praticien.** Ce texte semble être la charte commune des praticiens en
-    maïeusthésie : faut-il en citer la source ?
+### Tranché par Sébastien
+
+| # | Sujet | Décision |
+|---|---|---|
+| 1 | Tarifs | **Affichés** : 80 € (1h30), 60 € (enfant, 1 h), 100 € (couple ou famille, 2 h). |
+| 2 | Vocabulaire | **On garde** les formulations du site (« soutien psychothérapeutique », « approche de psychothérapie »). |
+| 3 | Prise de RDV | **Formulaire** pour le moment ; pas d'agenda en ligne. |
+| 4 | Témoignage | **On republie l'existant.** |
+| 5 | Hébergeur (mentions légales) | **Vercel Inc.** Coordonnées à reprendre de la page légale officielle de Vercel au moment de rédiger les mentions (non vérifiées en session). |
+
+### À demander à Nathalie (en attendant, rien n'est inventé)
+
+1. **Zone d'intervention** : communes ou rayon pour le présentiel. Gif-sur-Yvette (91)
+   n'est que l'adresse de l'éditeur. En simulation, la section « Où et comment »
+   affichera Zoom + « présentiel à votre domicile » avec un emplacement réservé à la zone.
+2. **Adresse privée** : la garder dans les mentions légales, ou passer par une
+   domiciliation ? Elle n'apparaît ni sur l'accueil ni dans le JSON-LD.
+3. **Photos** : existe-t-il des originaux en haute définition ? Les droits d'usage
+   sont-ils acquis pour chacune ? En attendant, celles du site sont utilisées en petit
+   format.
+4. **Témoignages** : d'autres sont-ils disponibles ? Accord et signature pour celui
+   qu'on republie ?
+5. **Mentions légales** : SIRET et statut juridique.
+6. **FAQ** : réponses sur la mutuelle, la durée d'un accompagnement et la première
+   séance. En simulation, textes prudents marqués « à valider ».
+
+### Restent ouverts (sans réponse pour l'instant)
+
+- **Formule sur le tarif** : « discutons-en » (site) ou « parlons-en » (brief). La
+  simulation reprend le site.
+- **Écriture inclusive** : point médian proposé à la place du point.
+- **Logo** : existe-t-il un fichier source vectoriel ? Le PNG du site est utilisé en
+  attendant.
+- **Charte du praticien** : en citer la source (charte commune des praticiens en
+  maïeusthésie) ?
 
 ## 9. Restructurations notées, non faites ici
 

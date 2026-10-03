@@ -21,16 +21,20 @@ Contexte long et justifications : [CONTEXT.md](./CONTEXT.md) · versions :
 
 ## Le client
 
-**<Nom commercial du client>** — <forme juridique>, <ville> (<code postal>), <métier> sur
-<zone desservie>. Prestataire : SIGWEB.
+**Allo la Vie** — Nathalie Brousse Ducrocq, praticienne en maïeusthésie (approche de
+Thierry Tournebise). Séances par Zoom ou en présentiel au domicile de la personne
+accompagnée. Forme juridique et SIRET : à demander. Zone desservie : à demander
+(Gif-sur-Yvette, 91, n'est que l'adresse de l'éditeur). Prestataire : SIGWEB.
 
-<Un site existe-t-il déjà sur le domaine visé ? Si oui, la bascule DNS est le dernier
-geste du projet.>
+Un site existe déjà sur **allolavie.fr** (HTML statique en tableaux, hébergé chez OVH) :
+la bascule DNS est le dernier geste du projet.
 
 ## 1. Tarifs sur le site
 
-<Le client veut-il, ou non, des tarifs affichés ? Par défaut chez SIGWEB : aucun montant
-sauf mention légale obligatoire (capital social). À confirmer avec le client.>
+**Tarifs affichés** (décision de Sébastien, lot 0) — exception au défaut SIGWEB, comme sur
+le site actuel : séance individuelle 1h30 – 80 € (enfant 1 h – 60 €), couple ou famille
+2 h – 100 €, avec « Si le tarif est un frein, discutons-en ! ». Les montants vivent dans
+`content/`, jamais en dur.
 
 ## 2. `apps/simulation` est figée (dès validation)
 
@@ -45,8 +49,11 @@ ou aussi sur la forme ? À préciser après le parti pris.>
 
 ## 4. Données non tranchées
 
-<Lister ici les données ambiguës ou contradictoires entre sources (orthographe d'un nom,
-ancienneté, domaines multiples…). Ne pas trancher soi-même — cf. `SIGWEB.md §7`.>
+Liste tenue à jour dans `apps/simulation/PARTI-PRIS.md §8`. À demander à Nathalie :
+zone d'intervention, publication de l'adresse privée, photos HD et droits, autres
+témoignages, SIRET et statut, réponses de FAQ (mutuelle, durée, première séance).
+
+Décidé : le vocabulaire du site (« soutien psychothérapeutique ») est **conservé**.
 
 ## 5. Identité visuelle
 
@@ -71,9 +78,11 @@ volontairement). Vide au départ.>
 
 ## 8. Formulaire de devis
 
-<Rappels par défaut SIGWEB : aucune donnée de prospect stockée (envoi courriel), seul un
-compteur anti-abus anonyme ; destinataire par variable d'environnement, jamais en dur.
-Préciser l'adresse de réception et la politique d'accusé de réception au prospect.>
+Ici un **formulaire de prise de contact** (pas de devis), sans champ « urgence » : une
+mention renvoie vers le 3114 ou le 15 en cas de détresse. Pas d'agenda en ligne pour le
+moment. Défauts SIGWEB : aucune donnée stockée, destinataire par variable
+d'environnement. Adresse de réception (contact@allolavie.fr ?) et accusé de réception :
+à préciser au lot 1.
 
 ## 9. Périmètre par lot
 
