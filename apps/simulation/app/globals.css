@@ -3,22 +3,23 @@
 @tailwind utilities;
 
 /*
- * Jetons de couleur — triplets RVB. Identité du site actuel conservée
- * (PARTI-PRIS.md §3) : fond feuillage, vert anis du menu, texte #156669,
- * orange du logo. Contrastes calculés au pixel le plus sombre du fond photo.
+ * Jetons de couleur — triplets RVB (PARTI-PRIS.md §3). V3 : mise en page de la
+ * V1, teintes ramenées vers l'identité du site actuel (vert anis, bleu-vert
+ * #156669, orange du logo), sans le fond photo.
+ * Contrastes calculés : `--lime` et `--orange` JAMAIS pour du texte.
  */
 :root {
-  --paper: 248 251 236;    /* #F8FBEC panneaux de contenu (sur la photo) */
-  --pale: 232 245 200;     /* #E8F5C8 panneaux / cartes vert pâle */
-  --anis: 205 235 122;     /* #CDEB7A vert anis clair */
-  --lime: 173 221 75;      /* #ADDD4B vert anis du menu actuel */
-  --ink: 27 68 70;         /* #1B4446 texte courant (bleu-vert sombre) */
-  --muted: 56 88 82;       /* #385852 texte secondaire */
-  --teal: 21 102 105;      /* #156669 couleur du texte du site actuel */
-  --teal-deep: 14 74 76;   /* #0E4A4C survol, texte sur vert anis */
+  --paper: 250 252 244;    /* #FAFCF4 fond principal, blanc teinté vert */
+  --pale: 238 245 221;     /* #EEF5DD sections alternées, cartes */
+  --leaf: 221 238 180;     /* #DDEEB4 vert anis doux (accroche, sections fortes) */
+  --lime: 155 203 60;      /* #9BCB3C vert anis vif — liserés et décor uniquement */
+  --ink: 31 63 64;         /* #1F3F40 texte courant */
+  --muted: 70 92 87;       /* #465C57 texte secondaire */
+  --teal: 21 102 105;      /* #156669 marque (couleur du site actuel) */
+  --teal-deep: 14 74 76;   /* #0E4A4C survol, pied de page */
   --night: 10 42 43;       /* #0A2A2B texte sur orange */
-  --orange: 246 136 8;     /* #F68808 orange du logo — fonds et décor, jamais du texte */
-  --terra: 168 71 12;      /* #A8470C petits accents de texte sur panneau clair */
+  --orange: 246 136 8;     /* #F68808 orange du logo — bouton « Appeler », pastilles, décor */
+  --terra: 168 71 12;      /* #A8470C petits accents de texte */
 }
 
 /*
@@ -40,7 +41,7 @@ html {
 
 body {
   color: rgb(var(--ink));
-  background: rgb(var(--lime));
+  background: rgb(var(--paper));
   font-size: 1.125rem;
   line-height: 1.6;
 }
@@ -51,16 +52,4 @@ summary {
 }
 summary::-webkit-details-marker {
   display: none;
-}
-
-/*
- * Fond feuillage du site actuel, fixe derrière le contenu. Pseudo-élément
- * `position: fixed` plutôt que `background-attachment: fixed` (mal géré sur iOS).
- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: rgb(var(--lime)) url("/simulation/fond-feuillage.webp") center / cover no-repeat;
 }

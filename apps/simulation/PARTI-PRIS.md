@@ -37,48 +37,42 @@ personne, la métaphore de la rivière, et le message sur le tarif.
 | Mentions légales et charte dans le menu principal (7 entrées) | Pied de page ; menu de 4 entrées + burger |
 | Photos de 200 à 450 px de large | Utilisées en petit format, en attendant les originaux (§8, à demander à Nathalie) |
 
-## 3. Palette — l'identité du site actuel, conservée
+## 3. Palette — V3 : la mise en page de la V1, les couleurs du site actuel
 
-> **Révision après la première recette** : la première version (sable, terre cuite)
-> s'éloignait trop du vert dominant du site. Décision de Sébastien : **garder la même
-> identité visuelle**. On conserve donc le fond feuillage, le vert anis du menu, le
-> texte bleu-vert et l'orange du logo ; seules la lisibilité et la mise en page changent.
+> **Historique des recettes.**
+> - V1 (sable, terre cuite) : mise en page appréciée, couleurs trop éloignées du site actuel.
+> - V2 (fond photo feuillage, vert anis vif partout) : refusée, « trop vieillot ».
+> - **V3 (actuelle)** : mise en page de la V1, teintes ramenées vers l'identité du site
+>   (vert anis, bleu-vert `#156669`, orange du logo), **sans fond photo**.
 
-- **Fond de page** : la photo de feuillage du site actuel (`fond-feuillage.webp`), fixe
-  derrière le contenu.
-- **Contenu** dans des panneaux clairs semi-opaques posés sur la photo. Le texte ne
-  repose jamais directement sur la photo : c'est ce qui garantit l'AA.
-- **Vert anis** (`#ADDD4B`, celui des cases du menu actuel) : entrées de menu encadrées
-  de bleu-vert, pied de page, liserés.
-- **Orange du logo** : logo en grand en tête de page, bouton « Appeler », pastilles.
+Le vert devient la couleur d'ambiance (fonds blanc-vert, sections vert pâle, accroche
+vert anis doux). Le vert anis vif sert de liseré, l'orange du logo porte le bouton
+« Appeler », et le bleu-vert du site reste la couleur des titres.
 
 | Jeton | Hex | Triplet | Origine | Rôle |
 |---|---|---|---|---|
-| `--paper` | `#F8FBEC` | `248 251 236` | — | Panneaux (90 % d'opacité sur la photo) |
-| `--pale` | `#E8F5C8` | `232 245 200` | fond feuillage, éclairci | Panneaux (92 %), cartes |
-| `--anis` | `#CDEB7A` | `205 235 122` | menu actuel, éclairci | Cartes, témoignage |
-| `--lime` | `#ADDD4B` | `173 221 75` | **menu actuel, inchangé** | Menu, pied de page, liserés |
-| `--ink` | `#1B4446` | `27 68 70` | `#156669` assombri | Texte courant |
-| `--muted` | `#385852` | `56 88 82` | — | Texte secondaire |
-| `--teal` | `#156669` | `21 102 105` | **texte actuel, inchangé** | Titres, liens, bouton principal |
-| `--teal-deep` | `#0E4A4C` | `14 74 76` | — | Texte sur vert anis, survol |
+| `--paper` | `#FAFCF4` | `250 252 244` | — | Fond principal, blanc teinté vert |
+| `--pale` | `#EEF5DD` | `238 245 221` | vert du site, très éclairci | Sections alternées, cartes |
+| `--leaf` | `#DDEEB4` | `221 238 180` | vert anis du menu, adouci | Accroche, sections fortes |
+| `--lime` | `#9BCB3C` | `155 203 60` | vert anis du menu (`#ADDD4B`) | **Liserés et décor uniquement** |
+| `--ink` | `#1F3F40` | `31 63 64` | `#156669` assombri | Texte courant |
+| `--muted` | `#465C57` | `70 92 87` | — | Texte secondaire |
+| `--teal` | `#156669` | `21 102 105` | **texte actuel, inchangé** | Titres, liens, bouton RDV |
+| `--teal-deep` | `#0E4A4C` | `14 74 76` | — | Survol, pied de page |
 | `--night` | `#0A2A2B` | `10 42 43` | — | Texte sur orange |
-| `--orange` | `#F68808` | `246 136 8` | **logo, inchangé** | Logo, bouton « Appeler », pastilles |
-| `--terra` | `#A8470C` | `168 71 12` | orange assombri | Petits accents de texte sur panneau clair |
-
-Les contrastes sur panneau sont calculés **au pixel le plus sombre de la photo**
-(`#73A84E`), c'est-à-dire dans le pire cas :
+| `--orange` | `#F68808` | `246 136 8` | **logo, inchangé** | Bouton « Appeler », pastilles, décor |
+| `--terra` | `#A8470C` | `168 71 12` | orange assombri | Petits accents de texte (tarifs, surtitres) |
 
 | Combinaison | Ratio | AA (≥ 4,5) |
 |---|---|---|
-| ink · teal · muted sur panneau paper 90 % | 9,4 · 5,9 · 6,9 | ✅ |
-| ink · teal · muted sur panneau pale 92 % | 8,8 · 5,5 · 6,4 | ✅ |
-| terra sur panneau paper · pale | 5,2 · 4,8 | ✅ |
-| teal-deep sur lime (menu, pied de page) | 6,3 | ✅ |
+| ink sur paper · pale · leaf | 11,0 · 10,2 · 9,2 | ✅ |
+| muted sur paper · pale · leaf | 6,9 · 6,4 · 5,8 | ✅ |
+| teal sur paper · pale · leaf | 6,5 · 6,0 · 5,4 | ✅ |
+| terra sur paper · pale · leaf | 5,7 · 5,3 · 4,8 | ✅ |
 | night sur orange (bouton « Appeler ») | 6,1 | ✅ |
 | blanc sur teal (bouton RDV) | 6,7 | ✅ |
-| teal sur lime | 4,2 | ⚠️ grands titres seulement (≥ 3:1), jamais du texte courant |
-| orange sur fond clair | 2,4 | ❌ logo et décor seulement |
+| paper sur teal-deep (pied de page) | 9,7 | ✅ |
+| lime sur paper · orange sur paper | 1,8 · 2,4 | ❌ → **jamais pour du texte**, décor seulement |
 
 ## 4. Typographie
 
@@ -93,7 +87,7 @@ Auto-hébergée via `next/font`, sans dépendance ajoutée ni requête tierce au
 ## 5. Ambiance
 
 Lumineuse et vivante plutôt que « cabinet » : la nature et les animaux de ses photos, un
-orange qui sourit, le feuillage lumineux du site actuel en fond. Des courbes « rivière » en séparateurs de section.
+orange qui sourit, des verts frais repris du site actuel, beaucoup d'air. Des courbes « rivière » en séparateurs de section.
 Micro-animations discrètes, contenu **visible par défaut**, rien sous
 `prefers-reduced-motion` (SIGWEB §11). Cibles tactiles ≥ 44 px. Pas de bleu hospitalier,
 pas de photos de banque d'images : uniquement les siennes.

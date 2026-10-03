@@ -12,7 +12,7 @@ type Props = {
 export function PageAnnexe({ titre, blocs, note }: Props) {
   return (
     <>
-      <header className="border-b-4 border-lime bg-paper/95 px-4 sm:px-6">
+      <header className="border-b border-pale bg-paper px-4 sm:px-6">
         <div className="mx-auto flex h-16 max-w-3xl items-center justify-between">
           <a href="/">
             <Image src={images.logo.src} width={images.logo.width} height={images.logo.height} alt={images.logo.alt} className="h-9 w-auto" />
@@ -22,7 +22,7 @@ export function PageAnnexe({ titre, blocs, note }: Props) {
           </a>
         </div>
       </header>
-      <main className="mx-3 my-6 max-w-3xl rounded-[2rem] bg-paper/95 px-5 py-10 sm:mx-auto md:px-10">
+      <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
         <h1 className="font-serif text-4xl text-teal">{titre}</h1>
         {blocs.map((b) => (
           <section key={b.titre} className="mt-8">

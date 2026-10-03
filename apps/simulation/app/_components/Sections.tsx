@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BoutonAppeler, BoutonRdv } from "./Boutons";
 import { ImageDouce } from "./ImageDouce";
 import { Riviere } from "./Icones";
@@ -19,14 +18,12 @@ import {
 
 export function Accroche() {
   return (
-    <section id="haut" className="px-3 pb-4 pt-8 sm:px-6 md:pt-12">
-      {/* Le logo en grand sur le feuillage, comme en tête du site actuel. */}
-      <Image src={images.logo.src} width={images.logo.width} height={images.logo.height} alt="" aria-hidden="true" priority className="mx-auto h-auto w-64 md:w-96" />
-      <div className="mx-auto mt-6 grid max-w-5xl items-center gap-8 rounded-[2rem] bg-paper/90 px-5 py-10 shadow-sm md:grid-cols-[1fr_auto] md:px-10">
+    <section id="haut" className="bg-gradient-to-b from-leaf to-paper px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
+      <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
           <h1 className="font-serif text-4xl leading-tight text-teal md:text-5xl">{hero.titre}</h1>
-          <p className="mt-5 max-w-xl text-lg">{hero.texte}</p>
+          <p className="mt-5 max-w-xl text-lg text-ink">{hero.texte}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <BoutonAppeler texte={hero.ctaAppeler} />
             <BoutonRdv texte={hero.ctaRdv} />
@@ -64,7 +61,7 @@ export function Pourquoi() {
 
 export function Maieusthesie() {
   return (
-    <Section id="maieusthesie" titre={maieusthesie.titre} fond="pale">
+    <Section id="maieusthesie" titre={maieusthesie.titre} fond="leaf">
       <p className="max-w-2xl">{maieusthesie.intro}</p>
       <ol className="mt-8 grid gap-6 md:grid-cols-3">
         {maieusthesie.points.map((p, i) => (
@@ -92,7 +89,7 @@ export function QuiSuisJe() {
     <Section id="qui" titre={qui.titre} surtitre={qui.surtitre}>
       <div className="grid gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
-          <blockquote className="border-l-4 border-orange pl-5 font-serif text-2xl italic leading-snug text-teal">
+          <blockquote className="border-l-4 border-lime pl-5 font-serif text-2xl italic leading-snug text-teal">
             {qui.citation}
           </blockquote>
           {qui.paragraphes.map((p) => (
@@ -103,7 +100,7 @@ export function QuiSuisJe() {
         </div>
         <ImageDouce {...images.cheval} className="mx-auto w-full self-start" />
       </div>
-      <Riviere className="my-10 text-orange/60" />
+      <Riviere className="my-10 text-lime" />
       <ul className="grid gap-6 md:grid-cols-2">
         {qui.etapes.map((e) => (
           <li key={e.titre} className="rounded-3xl bg-pale p-6">
@@ -125,7 +122,7 @@ export function Seances() {
           <li key={f.titre} className="flex flex-col rounded-3xl bg-paper p-6 shadow-sm">
             <h3 className="font-serif text-2xl text-teal">{f.titre}</h3>
             <p className="text-muted">{f.detail}</p>
-            <dl className="mt-6 grid grid-cols-2 gap-2 border-t border-lime pt-4">
+            <dl className="mt-6 grid grid-cols-2 gap-2 border-t border-pale pt-4">
               <div>
                 <dt className="text-sm text-muted">{seances.libelleDuree}</dt>
                 <dd className="text-xl font-bold">{f.duree}</dd>
@@ -140,7 +137,7 @@ export function Seances() {
       </ul>
       <ul className="mt-6 flex flex-wrap gap-2">
         {seances.modalites.map((m) => (
-          <li key={m} className="rounded-full bg-anis px-4 py-2 text-base font-bold text-teal">
+          <li key={m} className="rounded-full bg-leaf px-4 py-2 text-base font-bold text-teal">
             {m}
           </li>
         ))}
@@ -154,7 +151,7 @@ export function Temoignages() {
   return (
     <Section titre={temoignages.titre} id="temoignages">
       {temoignages.liste.map((t) => (
-        <figure key={t.texte.slice(0, 20)} className="relative rounded-3xl bg-anis p-6 md:p-10">
+        <figure key={t.texte.slice(0, 20)} className="relative rounded-3xl bg-leaf p-6 md:p-10">
           <span aria-hidden="true" className="absolute -top-6 left-6 font-serif text-7xl leading-none text-orange">
             “
           </span>
@@ -169,7 +166,7 @@ export function Temoignages() {
 export function Faq() {
   return (
     <Section id="faq" titre={faq.titre} fond="pale">
-      <div className="divide-y divide-lime overflow-hidden rounded-3xl bg-paper">
+      <div className="divide-y divide-paper overflow-hidden rounded-3xl bg-paper/60">
         {faq.questions.map((q) => (
           <details key={q.question} className="group px-5">
             <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-4 py-3 font-bold text-teal">
@@ -195,11 +192,11 @@ export function Zone() {
   return (
     <Section id="zone" titre={zone.titre}>
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-3xl bg-anis p-6">
+        <div className="rounded-3xl bg-leaf p-6">
           <h3 className="font-serif text-xl text-teal">{zone.visio.titre}</h3>
           <p className="mt-2">{zone.visio.texte}</p>
         </div>
-        <div className="rounded-3xl bg-anis p-6">
+        <div className="rounded-3xl bg-leaf p-6">
           <h3 className="font-serif text-xl text-teal">{zone.presentiel.titre}</h3>
           <p className="mt-2">{zone.presentiel.texte}</p>
           <p className="mt-3 rounded-2xl border-2 border-dashed border-teal/40 px-4 py-2 text-base text-muted">

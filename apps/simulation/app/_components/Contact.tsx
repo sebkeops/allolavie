@@ -5,7 +5,7 @@ import { contact, formulaire } from "@/content/site";
 
 export function Contact() {
   return (
-    <Section id="contact" titre={formulaire.titre} fond="pale">
+    <Section id="contact" titre={formulaire.titre} fond="leaf">
       <div className="grid gap-10 md:grid-cols-2">
         <div className="min-w-0">
           <p>{formulaire.intro}</p>

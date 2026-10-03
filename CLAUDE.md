@@ -57,15 +57,16 @@ Décidé : le vocabulaire du site (« soutien psychothérapeutique ») est **con
 
 ## 5. Identité visuelle
 
-**On garde l'identité du site actuel** (décision de Sébastien après la première recette :
-une palette sable / terre cuite a été refusée). Fond feuillage photo, vert anis du menu
-(`#ADDD4B`), texte bleu-vert (`#156669`), logo orange (`#F68808`). Jetons, rôles et
-contrastes : `apps/simulation/PARTI-PRIS.md §3`.
+Validée en V3 après deux recettes (`apps/simulation/PARTI-PRIS.md §3`) :
+- V1 sable / terre cuite : couleurs trop éloignées du site actuel ;
+- V2 fond photo feuillage : « trop vieillot ».
 
-- Le texte repose **toujours** sur un panneau clair semi-opaque, jamais directement sur
-  la photo : l'AA est calculé au pixel le plus sombre du fond.
-- L'orange n'est jamais une couleur de texte (2,4:1) : logo, bouton « Appeler » (texte
-  `--night`), pastilles.
+**Retenu : la mise en page de la V1, avec les couleurs de l'identité actuelle**, soit vert
+anis (`#9BCB3C` en liseré, teintes douces en fond), bleu-vert `#156669` pour les titres et
+orange du logo `#F68808` pour le bouton « Appeler ». **Pas de fond photo.**
+
+- Le vert anis vif et l'orange ne sont jamais des couleurs de texte (≤ 2,4:1).
+- Texte sur orange : `--night`.
 - Typo : Lora (titres) + Nunito Sans (texte, 18 px), via `next/font`.
 
 ## 6. Verrou d'indexation
@@ -79,10 +80,9 @@ Principe dans `SIGWEB.md §16`. Les emplacements qui portent le verrou pour ce p
 
 ## 7. Éléments à ne pas « corriger »
 
-- **Le fond photo de feuillage et le vert vif sont voulus** : c'est l'identité de la
-  cliente. Ne pas les « adoucir » vers une palette neutre ou sable.
-- Le logo apparaît deux fois sur l'accueil (en-tête + en grand sur le feuillage) : la
-  seconde occurrence est décorative (`aria-hidden`), comme en tête du site actuel.
+- **Les verts sont voulus** : c'est l'identité de la cliente. Ne pas revenir vers une
+  palette neutre ou sable (V1 refusée).
+- **Pas de fond photo de feuillage** : essayé en V2 et refusé (« trop vieillot »).
 
 ## 8. Formulaire de devis
 
