@@ -57,9 +57,14 @@ Décidé : le vocabulaire du site (« soutien psychothérapeutique ») est **con
 
 ## 5. Identité visuelle
 
-<Palette dérivée du logo / de l'existant, déclarée en variables CSS (triplets RVB) dans
-`apps/site/app/globals.css`. Reporter ici les jetons et leurs rôles une fois le parti
-pris validé, ainsi que les contraintes d'accessibilité AA calculées.>
+Validée par Sébastien (lot 0). Détail et contrastes : `apps/simulation/PARTI-PRIS.md §3`.
+
+- `--teal` `21 102 105` (#156669, couleur du site actuel) : marque, titres, bouton principal.
+- `--orange` `246 136 8` (#F68808, logo) : **logo et décor uniquement** (2,4:1 sur fond clair).
+- `--terra` `168 71 12` (#A8470C) : accents de texte, bouton « Appeler » (5,9:1 en blanc).
+- Fonds `--paper` `251 248 242`, `--sand` `241 234 220`, `--leaf` `228 237 207` ; texte
+  `--ink` `36 50 51`, `--muted` `79 93 92`.
+- Typo : Lora (titres) + Nunito Sans (texte, 18 px), via `next/font`.
 
 ## 6. Verrou d'indexation
 
