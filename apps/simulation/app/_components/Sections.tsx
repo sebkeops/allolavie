@@ -22,7 +22,7 @@ export function Accroche() {
       <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
-          <h1 className="font-serif text-4xl leading-tight text-teal md:text-5xl">{hero.titre}</h1>
+          <h1 className="font-serif text-[2rem] leading-tight text-teal sm:text-4xl md:text-5xl">{hero.titre}</h1>
           <p className="mt-5 max-w-xl text-lg text-ink">{hero.texte}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <BoutonAppeler texte={hero.ctaAppeler} />
@@ -130,12 +130,12 @@ export function Seances() {
           </li>
         ))}
       </ul>
-      <ul className="mt-10 grid gap-5 md:grid-cols-3">
+      <ul className="mt-10 grid gap-5 lg:grid-cols-3">
         {seances.formules.map((f) => (
           <li key={f.titre} className="flex flex-col rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-paper p-6 text-ink shadow-xl">
             <h3 className="font-serif text-2xl text-teal">{f.titre}</h3>
             <p className="text-muted">{f.detail}</p>
-            <p className="mt-6 flex items-baseline gap-2">
+            <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
               <span className="font-serif text-5xl font-bold text-teal">{f.tarif}</span>
               <span className="text-muted">{seances.parSeance}</span>
             </p>
@@ -147,9 +147,9 @@ export function Seances() {
           </li>
         ))}
       </ul>
-      <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-6 text-night md:flex-row md:items-center md:justify-between md:p-8">
+      <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-5 text-night md:flex-row md:items-center md:justify-between md:p-8">
         <p className="font-serif text-2xl italic md:text-3xl">{seances.frein}</p>
-        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-night px-6 py-3 font-bold text-paper hover:bg-teal-deep">
+        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="inline-flex min-h-12 max-w-full items-center gap-2 rounded-full bg-night px-5 py-3 font-bold text-paper hover:bg-teal-deep md:shrink-0">
           <IconeTelephone />
           {seances.ctaFrein}
         </a>

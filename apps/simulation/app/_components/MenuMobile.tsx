@@ -13,7 +13,7 @@ export function MenuMobile() {
   const fermer = () => ref.current?.removeAttribute("open");
 
   return (
-    <details ref={ref} className="group md:hidden">
+    <details ref={ref} className="group lg:hidden">
       <summary className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-teal hover:bg-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal">
         <IconeMenu />
         <span className="sr-only">{libelles.menu}</span>

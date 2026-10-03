@@ -11,7 +11,7 @@ export function EnTete() {
           <Image src={images.logo.src} width={images.logo.width} height={images.logo.height} alt={images.logo.alt} priority className="h-9 w-auto" />
         </a>
 
-        <nav aria-label="Navigation principale" className="hidden md:block">
+        <nav aria-label="Navigation principale" className="hidden lg:block">
           <ul className="flex items-center gap-6">
             {navigation.map((lien) => (
               <li key={lien.href}>
@@ -28,7 +28,7 @@ export function EnTete() {
             <IconeTelephone />
             <span className="hidden sm:inline">{contact.telephoneAffiche}</span>
           </a>
-          <a href="#contact" className="hidden min-h-12 items-center rounded-full bg-teal px-5 font-bold text-white hover:bg-teal-deep md:flex">
+          <a href="#contact" className="hidden min-h-12 items-center rounded-full bg-teal px-5 font-bold text-white hover:bg-teal-deep lg:flex">
             {libelles.contact}
           </a>
           <MenuMobile />

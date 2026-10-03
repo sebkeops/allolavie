@@ -46,6 +46,17 @@ body {
   line-height: 1.6;
 }
 
+/*
+ * Titres : césure française (lang="fr") et coupure de secours, pour qu'un mot
+ * long (« psychothérapeutique ») ne dépasse jamais la largeur de l'écran.
+ */
+h1,
+h2,
+h3 {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
 /* Accordéons natifs : on retire le triangle par défaut, remplacé par un « + ». */
 summary {
   list-style: none;
