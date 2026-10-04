@@ -73,26 +73,39 @@ export function Pourquoi() {
   );
 }
 
+/*
+ * « Chemin » vertical (retour de recette : 3 colonnes de hauteurs inégales) :
+ * trois étapes empilées, reliées par une ligne ondulée vert anis — la rivière.
+ * Sur desktop, la photo et le lien occupent une colonne à droite.
+ */
 export function Maieusthesie() {
   return (
     <Section id="maieusthesie" titre={maieusthesie.titre} fond="leaf" vague={2}>
       <p className="max-w-2xl">{maieusthesie.intro}</p>
-      <ol className="mt-8 grid gap-6 md:grid-cols-3">
-        {maieusthesie.points.map((p, i) => (
-          <li key={p.titre} className="rounded-3xl bg-paper p-6 text-center md:text-left">
-            <span aria-hidden="true" className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-orange md:mx-0 font-serif text-lg font-bold text-night">
-              {i + 1}
-            </span>
-            <h3 className="mt-4 font-serif text-xl text-teal">{p.titre}</h3>
-            <p className="mt-2">{p.texte}</p>
-          </li>
-        ))}
-      </ol>
-      <div className="mt-8 flex flex-col items-center gap-6 sm:flex-row">
-        <ImageDouce {...images.coucherSoleil} className="w-full" />
-        <a href={maieusthesie.lienUrl} rel="noopener" className="inline-flex min-h-12 items-center font-bold text-teal underline decoration-orange decoration-2 underline-offset-4 hover:text-terra">
-          {maieusthesie.lienTexte}
-        </a>
+      <div className="mt-10 grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_18rem]">
+        <ol className="relative grid gap-6">
+          {/* Fil de la rivière, derrière les pastilles (centre à 1.75rem). */}
+          <svg aria-hidden="true" className="absolute bottom-8 left-[1.25rem] top-8 w-4" viewBox="0 0 16 100" preserveAspectRatio="none">
+            <path d="M8 0 C 16 17, 0 33, 8 50 S 16 83, 8 100" fill="none" className="stroke-lime" strokeWidth={4} vectorEffect="non-scaling-stroke" />
+          </svg>
+          {maieusthesie.points.map((p, i) => (
+            <li key={p.titre} className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-4">
+              <span aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange font-serif text-2xl font-bold text-night shadow-md">
+                {i + 1}
+              </span>
+              <div className="rounded-[1.5rem_2.5rem_1.5rem_2.5rem] bg-paper px-5 py-4 shadow-sm">
+                <h3 className="font-serif text-xl text-teal">{p.titre}</h3>
+                <p className="mt-1">{p.texte}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div className="flex flex-col items-center gap-4">
+          <ImageDouce {...images.coucherSoleil} galet className="w-full shadow-lg ring-8 ring-paper" />
+          <a href={maieusthesie.lienUrl} rel="noopener" className="inline-flex min-h-12 items-center text-center font-bold text-teal underline decoration-orange decoration-2 underline-offset-4 hover:text-teal-deep">
+            {maieusthesie.lienTexte}
+          </a>
+        </div>
       </div>
     </Section>
   );

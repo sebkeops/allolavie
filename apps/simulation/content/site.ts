@@ -122,21 +122,23 @@ export const maieusthesie = {
   titre: "La maïeusthésie en 3 points",
   intro:
     "Une thérapie de la pertinence : cette approche de psychothérapie a été développée par Thierry Tournebise.",
+  // Titres courts (une ligne) et textes de longueur proche : retour de recette.
+  // Textes condensés depuis les pages « Maïeusthésie » et « Chartes » du site actuel.
   points: [
     {
-      titre: "L'art d'être sensible à la naissance du Soi",
+      titre: "La naissance du Soi",
       texte:
-        "Le mot vient de maieutikê, l'art d'accoucher, et d'aisthanesthai, sentir, percevoir.",
+        "Maieutikê, l'art d'accoucher, et aisthanesthai, sentir : la maïeusthésie est « l'art d'être sensible à la naissance du Soi ».",
     },
     {
-      titre: "Le symptôme comme un chemin",
+      titre: "Le symptôme, un chemin",
       texte:
-        "Le « problème psychologique » est considéré comme un chemin qui conduit, en nous, vers ce qui attend d'être réhabilité, de trouver sa juste place, d'être accueilli et aimé par nous-mêmes — tel un fil d'Ariane.",
+        "Le « problème psychologique » devient un chemin vers ce qui, en nous, attend d'être accueilli et de trouver sa juste place — tel un fil d'Ariane.",
     },
     {
-      titre: "Délicatesse, liberté et respect",
+      titre: "Délicatesse, liberté, respect",
       texte:
-        "Vous restez libre à chaque instant : une séance n'engage jamais à la suivante.",
+        "Vous restez libre à chaque instant : aucune théorie ne vous est imposée, et une séance n'engage jamais à la suivante.",
     },
   ],
   lienTexte: "En savoir plus sur maieusthesie.com",
