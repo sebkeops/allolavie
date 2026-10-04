@@ -25,7 +25,8 @@ export function Accroche() {
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
           <h1 className="font-serif text-[2rem] leading-tight text-teal sm:text-4xl lg:text-5xl">{hero.titre}</h1>
           <p className="mt-5 max-w-xl text-lg text-ink">{hero.texte}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          {/* Masqués sous md : la barre fixe du bas porte déjà ces deux actions (décision de Sébastien). */}
+          <div className="mt-8 hidden gap-3 md:flex">
             <BoutonAppeler texte={hero.ctaAppeler} />
             <BoutonRdv texte={hero.ctaRdv} />
           </div>
