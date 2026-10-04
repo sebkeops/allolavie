@@ -37,8 +37,8 @@ fonctionnel** :
 Un brief décrit **ce qu'il faut construire et pourquoi**, jamais ce que ça coûte ni ce
 que ça rapporte.
 
-Cette règle vaut aussi pour ce qui est publié sur le site : voir
-[CLAUDE.md §1](../CLAUDE.md), qui interdit tout tarif à l'écran.
+Pour les tarifs publiés sur le site, voir [CLAUDE.md §1](../CLAUDE.md) (ce projet les
+affiche, par exception).
 
 ## Rédaction
 

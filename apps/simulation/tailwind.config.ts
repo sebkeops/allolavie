@@ -3,24 +3,33 @@ import type { Config } from "tailwindcss";
 /**
  * Thème SCOPÉ à apps/simulation (ne rien imposer au futur site de prod).
  *
- * Les couleurs sont des JETONS neutres par défaut, déclarés en variables CSS
- * (triplets RVB) dans app/globals.css et référencés ici via
- * `rgb(var(--x) / <alpha-value>)` — ce qui préserve les modificateurs d'opacité
- * de Tailwind (`bg-brand/10`). La vraie palette se dérive du logo/identité du
- * client au LOT 0 (voir PARTI-PRIS.md) : il suffit alors de changer les triplets
- * dans globals.css, sans toucher aux composants.
+ * Couleurs = jetons déclarés en triplets RVB dans app/globals.css et référencés
+ * via `rgb(var(--x) / <alpha-value>)` (modificateurs d'opacité préservés).
+ * Palette et contrastes : PARTI-PRIS.md §3.
  */
+const jeton = (nom: string) => `rgb(var(--${nom}) / <alpha-value>)`;
+
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
+  content: ["./app/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}", "./content/**/*.ts"],
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: "rgb(var(--brand) / <alpha-value>)",
-          accent: "rgb(var(--brand-accent) / <alpha-value>)",
-        },
-        ink: "rgb(var(--ink) / <alpha-value>)",
-        paper: "rgb(var(--paper) / <alpha-value>)",
+        paper: jeton("paper"),
+        pale: jeton("pale"),
+        lime: jeton("lime"),
+        night: jeton("night"),
+        leaf: jeton("leaf"),
+        ink: jeton("ink"),
+        muted: jeton("muted"),
+        teal: { DEFAULT: jeton("teal"), deep: jeton("teal-deep") },
+        peach: jeton("peach"),
+        orange: jeton("orange"),
+        terra: jeton("terra"),
+      },
+      fontFamily: {
+        serif: ["var(--font-titre)", "Georgia", "serif"],
+        sans: ["var(--font-texte)", "system-ui", "sans-serif"],
+        manuscrite: ["var(--font-manuscrite)", "cursive"],
       },
     },
   },

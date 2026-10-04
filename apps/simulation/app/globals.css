@@ -3,14 +3,24 @@
 @tailwind utilities;
 
 /*
- * Jetons de couleur — triplets RVB NEUTRES par défaut (placeholder du starter).
- * À remplacer par la palette dérivée de l'identité du client au LOT 0.
+ * Jetons de couleur — triplets RVB (PARTI-PRIS.md §3). V3 : mise en page de la
+ * V1, teintes ramenées vers l'identité du site actuel (vert anis, bleu-vert
+ * #156669, orange du logo), sans le fond photo.
+ * Contrastes calculés : `--lime` et `--orange` JAMAIS pour du texte.
  */
 :root {
-  --brand: 14 55 66;        /* ardoise neutre */
-  --brand-accent: 37 99 235; /* accent neutre */
-  --ink: 17 24 39;          /* texte */
-  --paper: 255 255 255;     /* fond */
+  --paper: 250 252 244;    /* #FAFCF4 fond principal, blanc teinté vert */
+  --pale: 238 245 221;     /* #EEF5DD sections alternées, cartes */
+  --leaf: 221 238 180;     /* #DDEEB4 vert anis doux (accroche, sections fortes) */
+  --lime: 155 203 60;      /* #9BCB3C vert anis vif — liserés et décor uniquement */
+  --ink: 31 63 64;         /* #1F3F40 texte courant */
+  --muted: 70 92 87;       /* #465C57 texte secondaire */
+  --teal: 21 102 105;      /* #156669 marque (couleur du site actuel) */
+  --teal-deep: 14 74 76;   /* #0E4A4C survol, pied de page */
+  --night: 10 42 43;       /* #0A2A2B texte sur orange */
+  --peach: 252 227 198;    /* #FCE3C6 orange du logo très éclairci — fond doux du bouton « Appeler » */
+  --orange: 246 136 8;     /* #F68808 orange du logo — bouton « Appeler », pastilles, décor */
+  --terra: 168 71 12;      /* #A8470C petits accents de texte */
 }
 
 /*
@@ -19,10 +29,41 @@
  */
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* Les ancres ne passent pas sous l'en-tête fixe. */
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   color: rgb(var(--ink));
   background: rgb(var(--paper));
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/*
+ * Titres : lignes équilibrées, pas de césure (« psychothérapeu-tique » refusé
+ * en recette). Coupure de secours seulement si un mot dépasse l'écran : la
+ * taille mobile du h1 (2rem) est choisie pour que « psychothérapeutique »
+ * tienne dès 360 px.
+ */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* Accordéons natifs : on retire le triangle par défaut, remplacé par un « + ». */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
 }

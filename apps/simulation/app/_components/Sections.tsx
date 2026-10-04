@@ -1,0 +1,266 @@
+import { BoutonAppeler, BoutonRdv } from "./Boutons";
+import { ImageDouce } from "./ImageDouce";
+import { VisageEmotion } from "./Illustrations";
+import { IconeCalendrier, IconeHorloge, IconeMaison, IconeTelephone, IconeVisio, Riviere } from "./Icones";
+import { Section } from "./Section";
+import {
+  contact,
+  faq,
+  hero,
+  images,
+  libelles,
+  maieusthesie,
+  pourquoi,
+  qui,
+  seances,
+  temoignages,
+  zone,
+} from "@/content/site";
+
+export function Accroche() {
+  return (
+    <section id="haut" className="bg-gradient-to-b from-leaf to-pale px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
+      <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[minmax(0,1fr)_17rem] md:gap-10">
+        <div className="min-w-0">
+          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
+          <h1 className="font-serif text-[2rem] leading-tight text-teal sm:text-4xl lg:text-5xl">{hero.titre}</h1>
+          <p className="mt-5 max-w-xl text-lg text-ink">{hero.texte}</p>
+          {/* Masqués sous md : la barre fixe du bas porte déjà ces deux actions (décision de Sébastien). */}
+          <div className="mt-8 hidden gap-3 md:flex">
+            <BoutonAppeler texte={hero.ctaAppeler} />
+            <BoutonRdv texte={hero.ctaRdv} />
+          </div>
+          <p className="mt-5 font-manuscrite font-semibold text-2xl text-muted">{contact.phraseContact}</p>
+        </div>
+        {/* Portrait : taille réelle (234 px, non agrandi), posé sur deux galets décoratifs. */}
+        <figure className="relative mx-auto w-[min(100%,234px)]">
+          <span aria-hidden="true" className="absolute -inset-5 rotate-6 rounded-[58%_42%_52%_48%/46%_54%_46%_54%] bg-lime/50" />
+          <span aria-hidden="true" className="absolute -bottom-4 -left-6 h-16 w-16 rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange" />
+          <ImageDouce {...images.portrait} priority galet className="relative w-full shadow-xl ring-8 ring-paper" />
+          <figcaption className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-paper px-4 py-0.5 font-manuscrite font-semibold text-2xl text-teal-deep shadow-md">
+            {contact.prenom}
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+export function Pourquoi() {
+  return (
+    <Section id="pourquoi" titre={pourquoi.titre} vague={1}>
+      <p className="text-muted">{pourquoi.intro}</p>
+      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+        {pourquoi.motifs.map((m) => (
+          <li key={m.titre} className="flex flex-col items-center gap-4 rounded-[2rem_3.5rem_2rem_3.5rem] border-l-8 border-lime bg-pale p-6 text-center sm:flex-row sm:text-left">
+            <VisageEmotion emotion={m.illustration} />
+            <div className="min-w-0">
+              <h3 className="font-manuscrite font-semibold text-3xl leading-tight text-teal">{m.titre}</h3>
+              <p className="mt-2">{m.texte}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {/* Photo + relance groupées au centre (pas de `justify-between` : laissait un grand vide sur desktop). */}
+      <div className="mt-10 flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
+        <ImageDouce {...images.chevaux} className="w-full md:w-[400px] md:shrink-0" />
+        <div className="text-center md:text-left">
+          <p className="font-manuscrite font-semibold text-4xl text-teal">{pourquoi.conclusion}</p>
+          <BoutonAppeler texte={libelles.appeler} className="mt-4" />
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/*
+ * « Chemin » vertical (retour de recette : 3 colonnes de hauteurs inégales) :
+ * trois étapes empilées, reliées par une ligne ondulée vert anis — la rivière.
+ * Sur desktop, la photo et le lien occupent une colonne à droite.
+ */
+export function Maieusthesie() {
+  return (
+    <Section id="maieusthesie" titre={maieusthesie.titre} fond="leaf" vague={2}>
+      <p className="max-w-2xl">{maieusthesie.intro}</p>
+      <div className="mt-10 grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_18rem]">
+        <ol className="relative grid gap-6">
+          {/* Fil de la rivière, derrière les pastilles (centre à 1.75rem). */}
+          {/* Le SVG est un élément « remplacé » : positionné seul avec top + bottom, il garde
+              sa hauteur intrinsèque (100 px) au lieu de s'étirer. Un <div> l'étire, le SVG le remplit. */}
+          <div aria-hidden="true" className="absolute bottom-10 left-[1.25rem] top-10 w-4">
+            <svg className="block h-full w-full" viewBox="0 0 16 100" preserveAspectRatio="none">
+              <path d="M8 0 C 16 17, 0 33, 8 50 S 16 83, 8 100" fill="none" className="stroke-lime" strokeWidth={4} vectorEffect="non-scaling-stroke" />
+            </svg>
+          </div>
+          {maieusthesie.points.map((p, i) => (
+            <li key={p.titre} className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-4">
+              <span aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange font-serif text-2xl font-bold text-night shadow-md">
+                {i + 1}
+              </span>
+              <div className="rounded-[1.5rem_2.5rem_1.5rem_2.5rem] bg-paper px-5 py-4 shadow-sm">
+                <h3 className="font-serif text-xl text-teal">{p.titre}</h3>
+                <p className="mt-1">{p.texte}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div className="flex flex-col items-center gap-4">
+          <ImageDouce {...images.coucherSoleil} galet className="w-full shadow-lg ring-8 ring-paper" />
+          <a href={maieusthesie.lienUrl} rel="noopener" className="inline-flex min-h-12 items-center text-center font-bold text-teal underline decoration-orange decoration-2 underline-offset-4 hover:text-teal-deep">
+            {maieusthesie.lienTexte}
+          </a>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+export function QuiSuisJe() {
+  return (
+    <Section id="qui" titre={qui.titre} surtitre={qui.surtitre} vague={3}>
+      <div className="grid gap-10 md:grid-cols-[1fr_auto]">
+        <div className="min-w-0">
+          <blockquote className="border-l-4 border-lime pl-5 font-manuscrite font-semibold text-3xl leading-snug text-teal md:text-4xl">
+            {qui.citation}
+          </blockquote>
+          {qui.paragraphes.map((p) => (
+            <p key={p.slice(0, 20)} className="mt-5">
+              {p}
+            </p>
+          ))}
+        </div>
+        <ImageDouce {...images.cheval} galet className="mx-auto w-full self-start" />
+      </div>
+      <Riviere className="my-10 text-lime" />
+      <ul className="grid gap-6 md:grid-cols-2">
+        {qui.etapes.map((e) => (
+          <li key={e.titre} className="rounded-3xl bg-pale p-6">
+            <h3 className="font-serif text-xl text-teal">{e.titre}</h3>
+            <p className="mt-2">{e.texte}</p>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
+}
+
+/*
+ * Section mise en avant (demande de Sébastien) : seule section sur fond sombre,
+ * prix en grand, appel à l'action et message sur le tarif en encart orange.
+ * Contrastes : paper / leaf sur teal-deep 9,7 / 8,1 ; night sur orange 6,1.
+ */
+export function Seances() {
+  return (
+    <Section id="seances" titre={seances.titre} surtitre={seances.surtitre} fond="profond" vague={4}>
+      <p className="text-leaf">{seances.intro}</p>
+      <ul className="mt-6 flex flex-wrap gap-2">
+        {seances.modalites.map((m, i) => (
+          <li key={m} className="inline-flex items-center gap-2 rounded-full border-2 border-lime px-4 py-1.5 text-base font-bold text-paper">
+            {i === 0 ? <IconeVisio className="h-5 w-5 text-lime" /> : <IconeMaison className="h-5 w-5 text-lime" />}
+            {m}
+          </li>
+        ))}
+      </ul>
+      <ul className="mt-10 grid gap-5 lg:grid-cols-3">
+        {seances.formules.map((f) => (
+          <li key={f.titre} className="flex flex-col rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-paper p-6 text-ink shadow-xl">
+            <h3 className="font-serif text-2xl text-teal">{f.titre}</h3>
+            <p className="text-muted">{f.detail}</p>
+            <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
+              <span className="font-serif text-5xl font-bold text-teal">{f.tarif}</span>
+              <span className="text-muted">{seances.parSeance}</span>
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 self-start rounded-full bg-leaf px-4 py-1.5 font-bold text-teal-deep">
+              <IconeHorloge />
+              <span className="sr-only">{seances.libelleDuree} : </span>
+              {f.duree}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-5 text-night md:flex-row md:items-center md:justify-between md:p-8">
+        <p className="font-manuscrite font-semibold text-3xl md:text-4xl">{seances.frein}</p>
+        <a href={contact.telephoneLien} className="inline-flex min-h-12 max-w-full items-center gap-2 rounded-full bg-night px-5 py-3 font-bold text-paper hover:bg-teal-deep md:shrink-0">
+          <IconeTelephone />
+          {seances.ctaFrein}
+        </a>
+      </div>
+      <div className="mt-8 text-center">
+        <a href="#contact" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-paper px-8 py-3 font-bold text-teal hover:bg-leaf">
+          <IconeCalendrier />
+          {seances.ctaRdv}
+        </a>
+      </div>
+    </Section>
+  );
+}
+
+export function Temoignages() {
+  return (
+    <Section titre={temoignages.titre} id="temoignages" vague={5}>
+      {temoignages.liste.map((t) => (
+        <figure key={t.texte.slice(0, 20)} className="relative rounded-3xl bg-leaf p-6 md:p-10">
+          <span aria-hidden="true" className="absolute -top-6 left-6 font-serif text-7xl leading-none text-orange">
+            “
+          </span>
+          <blockquote className="font-manuscrite font-semibold text-2xl leading-snug md:text-3xl">« {t.texte} »</blockquote>
+          <figcaption className="mt-4 text-muted">— {t.auteur}</figcaption>
+        </figure>
+      ))}
+    </Section>
+  );
+}
+
+export function Faq() {
+  return (
+    <Section id="faq" titre={faq.titre} fond="pale" vague={6}>
+      <div className="divide-y divide-paper overflow-hidden rounded-3xl bg-paper/60">
+        {faq.questions.map((q) => (
+          <details key={q.question} className="group px-5">
+            <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-4 py-3 font-bold text-teal">
+              {q.question}
+              <span aria-hidden="true" className="text-2xl text-terra transition-transform group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <div className="pb-5">
+              <p>{q.reponse}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/* Pastille ronde qui porte un picto (orange du logo, picto en `night`). */
+function Pastille({ children, centrer = false }: { children: React.ReactNode; centrer?: boolean }) {
+  return (
+    <span aria-hidden="true" className={`${centrer ? "mx-auto" : ""} flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md`}>
+      {children}
+    </span>
+  );
+}
+
+export function Zone() {
+  return (
+    <Section id="zone" titre={zone.titre} vague={7}>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6 text-center">
+          <Pastille centrer>
+            <IconeVisio />
+          </Pastille>
+          <h3 className="mt-4 font-serif text-2xl text-teal">{zone.visio.titre}</h3>
+          <p className="mt-2">{zone.visio.texte}</p>
+        </div>
+        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6 text-center">
+          <Pastille centrer>
+            <IconeMaison />
+          </Pastille>
+          <h3 className="mt-4 font-serif text-2xl text-teal">{zone.presentiel.titre}</h3>
+          <p className="mt-2">{zone.presentiel.texte}</p>
+        </div>
+      </div>
+    </Section>
+  );
+}

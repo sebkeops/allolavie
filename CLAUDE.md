@@ -21,16 +21,20 @@ Contexte long et justifications : [CONTEXT.md](./CONTEXT.md) · versions :
 
 ## Le client
 
-**<Nom commercial du client>** — <forme juridique>, <ville> (<code postal>), <métier> sur
-<zone desservie>. Prestataire : SIGWEB.
+**Allo la Vie** — Nathalie Brousse Ducrocq, praticienne en maïeusthésie (approche de
+Thierry Tournebise). Séances par Zoom ou en présentiel au domicile de la personne
+accompagnée. Forme juridique et SIRET : à demander. Zone desservie : à demander
+(Gif-sur-Yvette, 91, n'est que l'adresse de l'éditeur). Prestataire : SIGWEB.
 
-<Un site existe-t-il déjà sur le domaine visé ? Si oui, la bascule DNS est le dernier
-geste du projet.>
+Un site existe déjà sur **allolavie.fr** (HTML statique en tableaux, hébergé chez OVH) :
+la bascule DNS est le dernier geste du projet.
 
 ## 1. Tarifs sur le site
 
-<Le client veut-il, ou non, des tarifs affichés ? Par défaut chez SIGWEB : aucun montant
-sauf mention légale obligatoire (capital social). À confirmer avec le client.>
+**Tarifs affichés** (décision de Sébastien, lot 0) — exception au défaut SIGWEB, comme sur
+le site actuel : séance individuelle 1h30 – 80 € (enfant 1 h – 60 €), couple ou famille
+2 h – 100 €, avec « Si le tarif est un frein, discutons-en ! ». Les montants vivent dans
+`content/`, jamais en dur.
 
 ## 2. `apps/simulation` est figée (dès validation)
 
@@ -40,19 +44,54 @@ Une fois la simulation validée par le client, elle reste montrable telle quelle
 
 ## 3. Design
 
-<Le design est-il validé sans réserve ? Les retours attendus portent-ils sur le contenu
-ou aussi sur la forme ? À préciser après le parti pris.>
+**V3 retenue par Sébastien** (« on reste sur cette version, à consolider ») : on ne
+change plus de direction, on peaufine. Formes ondulées (vagues entre sections, trait
+« rivière » sous les titres, photos en galet), pictos dans des pastilles orange, et la
+section **Séances mise en avant** : seule section sur fond sombre (`teal-deep`), prix en
+grand, encart orange « Si le tarif est un frein, discutons-en ! ».
+En-tête sur **fond vert anis vif** (demande de Sébastien) : le logo orange y est posé sur
+un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1). Sur mobile et tablette, le logo est
+**centré**, menu à droite, et **pas d'icône téléphone dans l'en-tête** (décision de
+Sébastien : la barre fixe du bas et l'accroche portent déjà l'appel). Écart assumé au
+brief lot 0 §4.2 (« numéro cliquable en header sticky »). Sur ordinateur non plus
+(« trop chargé ») : logo, 4 liens, un seul bouton clair « Prendre RDV » ; survol des liens
+par une petite vague « rivière » qui apparaît, pas de soulignement.
+**Boutons « Appeler » / « Prendre RDV » en version douce** (pleins orange et bleu-vert
+jugés « trop agressifs ») : fond pêche `#FCE3C6` bordé d'orange, et contour bleu-vert sur
+fond clair.
+
+**La page s'adresse à un visiteur lambda, pas à Nathalie** (règle de Sébastien) : aucun
+texte « méta » à l'écran — ni teaser commercial (« une page par commune »), ni étiquette
+« réponse à valider », ni emplacement « à confirmer avec Nathalie », ni note « page de
+simulation ». Ce qui manque est suivi dans `PARTI-PRIS.md §8` et la PR ; Sébastien
+complète à l'oral. Seules exceptions : le bandeau « Simulation SIGWEB — non
+contractuelle » et la mention sous la confirmation du formulaire (« aucun message n'est
+réellement envoyé »), pour qu'aucun vrai visiteur ne croie sa demande transmise.
 
 ## 4. Données non tranchées
 
-<Lister ici les données ambiguës ou contradictoires entre sources (orthographe d'un nom,
-ancienneté, domaines multiples…). Ne pas trancher soi-même — cf. `SIGWEB.md §7`.>
+Liste tenue à jour dans `apps/simulation/PARTI-PRIS.md §8`. À demander à Nathalie :
+zone d'intervention, publication de l'adresse privée, photos HD et droits, autres
+témoignages, SIRET et statut, réponses de FAQ (mutuelle, durée, première séance).
+
+Décidé : le vocabulaire du site (« soutien psychothérapeutique ») est **conservé**.
 
 ## 5. Identité visuelle
 
-<Palette dérivée du logo / de l'existant, déclarée en variables CSS (triplets RVB) dans
-`apps/site/app/globals.css`. Reporter ici les jetons et leurs rôles une fois le parti
-pris validé, ainsi que les contraintes d'accessibilité AA calculées.>
+Validée en V3 après deux recettes (`apps/simulation/PARTI-PRIS.md §3`) :
+- V1 sable / terre cuite : couleurs trop éloignées du site actuel ;
+- V2 fond photo feuillage : « trop vieillot ».
+
+**Retenu : la mise en page de la V1, avec les couleurs de l'identité actuelle**, soit vert
+anis (`#9BCB3C` en liseré, teintes douces en fond), bleu-vert `#156669` pour les titres et
+orange du logo `#F68808` pour le bouton « Appeler ». **Pas de fond photo.**
+
+- Le vert anis vif et l'orange ne sont jamais des couleurs de texte (≤ 2,4:1).
+- Texte sur orange : `--night`.
+- Typo : Lora (titres) + Nunito Sans (texte, 18 px) + **Caveat manuscrite** (demande de
+  Sébastien) pour les accents seulement : titres des émotions, témoignage, citation de la
+  rivière, « Et oui, j'aime l'idée… », « Si le tarif est un frein… », « Et si on en
+  parlait ? ». Jamais pour le texte courant ni les formulaires. Toutes via `next/font`.
 
 ## 6. Verrou d'indexation
 
@@ -65,15 +104,17 @@ Principe dans `SIGWEB.md §16`. Les emplacements qui portent le verrou pour ce p
 
 ## 7. Éléments à ne pas « corriger »
 
-<Lister ici les choix qui ont l'air d'oublis mais n'en sont pas, pour qu'aucune session
-ultérieure ne les « répare » (ex. un logo rendu d'une certaine façon, une donnée absente
-volontairement). Vide au départ.>
+- **Les verts sont voulus** : c'est l'identité de la cliente. Ne pas revenir vers une
+  palette neutre ou sable (V1 refusée).
+- **Pas de fond photo de feuillage** : essayé en V2 et refusé (« trop vieillot »).
 
 ## 8. Formulaire de devis
 
-<Rappels par défaut SIGWEB : aucune donnée de prospect stockée (envoi courriel), seul un
-compteur anti-abus anonyme ; destinataire par variable d'environnement, jamais en dur.
-Préciser l'adresse de réception et la politique d'accusé de réception au prospect.>
+Ici un **formulaire de prise de contact** (pas de devis), sans champ « urgence » : une
+mention renvoie vers le 3114 ou le 15 en cas de détresse. Pas d'agenda en ligne pour le
+moment. Défauts SIGWEB : aucune donnée stockée, destinataire par variable
+d'environnement. Adresse de réception (contact@allolavie.fr ?) et accusé de réception :
+à préciser au lot 1.
 
 ## 9. Périmètre par lot
 

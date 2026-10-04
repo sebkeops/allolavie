@@ -5,14 +5,21 @@
 
 ## Le projet
 
-<Qui est le client, quel est son métier, quel est l'objectif de la refonte. Quel site
-existe aujourd'hui, sur quel domaine, sous quelle technologie.>
+Nathalie Brousse Ducrocq, ancienne ingénieure devenue praticienne en maïeusthésie
+(« Allo la Vie »). Site actuel : allolavie.fr, 7 pages HTML en tableaux (OVH), non
+responsive, titres en images, aucun SEO local. Objectif : un site mobile-first,
+rassurant, orienté prise de contact, bien référencé localement.
 
 ## Décisions structurantes
 
-<Au fur et à mesure : choix d'architecture, arbitrages de contenu, raisons des écarts
-avec l'existant. Chaque décision non évidente mérite une ligne ici.>
+- **Lot 0** — tarifs affichés (exception au défaut SIGWEB), comme sur le site actuel.
+- **Lot 0** — vocabulaire « psychothérapeutique » du site conservé.
+- **Lot 0** — prise de RDV par formulaire, pas d'agenda en ligne pour le moment.
+- **Lot 0** — le témoignage existant est republié.
+- **Lot 0** — hébergeur cité dans les mentions légales : Vercel Inc.
+- **Lot 0** — palette dérivée de l'existant (bleu-vert `#156669` conservé, orange du logo
+  en signature) : voir `apps/simulation/PARTI-PRIS.md §3`.
 
 ## Points en attente / à arbitrer
 
-<Données non tranchées, éléments attendus du client, questions ouvertes.>
+Voir `apps/simulation/PARTI-PRIS.md §8` (« À demander à Nathalie »).
