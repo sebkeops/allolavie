@@ -51,7 +51,10 @@ section **Séances mise en avant** : seule section sur fond sombre (`teal-deep`)
 grand, encart orange « Si le tarif est un frein, discutons-en ! ».
 En-tête sur **fond vert anis vif** (demande de Sébastien) : le logo orange y est posé sur
 un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1). Sur mobile et tablette, le logo est
-**centré** (téléphone à gauche, menu à droite).
+**centré**, menu à droite, et **pas d'icône téléphone dans l'en-tête** (décision de
+Sébastien : la barre fixe du bas et l'accroche portent déjà l'appel). Écart assumé au
+brief lot 0 §4.2 (« numéro cliquable en header sticky ») ; sur ordinateur, le numéro
+reste dans l'en-tête.
 **Boutons « Appeler » / « Prendre RDV » en version douce** (pleins orange et bleu-vert
 jugés « trop agressifs ») : fond pêche `#FCE3C6` bordé d'orange, et contour bleu-vert sur
 fond clair.

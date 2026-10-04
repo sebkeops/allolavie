@@ -11,11 +11,11 @@ import { contact, images, libelles, navigation } from "@/content/site";
 export function EnTete() {
   return (
     <header className="sticky top-0 z-40 border-b-4 border-teal bg-lime shadow-md">
-      {/* < lg : grille 3 colonnes (téléphone · logo centré · menu) ; ≥ lg : logo · navigation · actions. */}
+      {/* < lg : grille 3 colonnes (vide · logo centré · menu) ; ≥ lg : logo · navigation · actions. */}
       <div className="relative mx-auto grid h-16 max-w-5xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 sm:px-6 lg:flex lg:justify-between">
-        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="flex h-12 w-12 items-center justify-center justify-self-start rounded-full text-teal-deep hover:bg-leaf lg:hidden">
-          <IconeTelephone />
-        </a>
+        {/* Colonne gauche vide sous lg : garde le logo centré. Pas de téléphone ici sur
+            mobile (décision de Sébastien) : la barre du bas et l'accroche le portent déjà. */}
+        <span aria-hidden="true" className="h-12 w-12 lg:hidden" />
 
         <a href="#haut" className="shrink-0 justify-self-center rounded-[45%_55%_50%_50%/60%_45%_55%_40%] bg-paper px-4 py-1.5 shadow-sm">
           <Image src={images.logo.src} width={images.logo.width} height={images.logo.height} alt={images.logo.alt} priority className="h-8 w-auto" />
