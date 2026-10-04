@@ -1,5 +1,6 @@
 import { BoutonAppeler, BoutonRdv } from "./Boutons";
 import { ImageDouce } from "./ImageDouce";
+import { VisageEmotion } from "./Illustrations";
 import { IconeCalendrier, IconeCarte, IconeHorloge, IconeMaison, IconeRepere, IconeTelephone, IconeVisio, Riviere } from "./Icones";
 import { Section } from "./Section";
 import {
@@ -50,9 +51,12 @@ export function Pourquoi() {
       <p className="text-muted">{pourquoi.intro}</p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2">
         {pourquoi.motifs.map((m) => (
-          <li key={m.titre} className="rounded-3xl border-l-8 border-lime bg-pale p-6">
-            <h3 className="font-serif text-xl text-teal">{m.titre}</h3>
-            <p className="mt-2">{m.texte}</p>
+          <li key={m.titre} className="flex flex-col gap-4 rounded-[2rem_3.5rem_2rem_3.5rem] border-l-8 border-lime bg-pale p-6 sm:flex-row sm:items-start">
+            <VisageEmotion emotion={m.illustration} />
+            <div className="min-w-0">
+              <h3 className="font-serif text-xl text-teal">{m.titre}</h3>
+              <p className="mt-2">{m.texte}</p>
+            </div>
           </li>
         ))}
       </ul>

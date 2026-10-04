@@ -89,24 +89,28 @@ export const hero = {
 export const pourquoi = {
   titre: "Vous vous reconnaissez ?",
   intro: "Peut-être que l'une de ces phrases vous parle…",
-  motifs: [
+  motifs: <{ titre: string; illustration: "perdu" | "angoisse" | "schemas" | "vivant"; texte: string }[]>[
     {
       titre: "Perdu·e",
+      illustration: "perdu",
       texte:
         "Vous vous sentez perdu·e, avec un besoin de vous sentir pleinement écouté·e, rejoint·e au cœur de ce que vous vivez.",
     },
     {
       titre: "Angoissé·e",
+      illustration: "angoisse",
       texte:
         "Vous vous sentez régulièrement angoissé·e, avec l'envie de (re)trouver la sérénité en vous.",
     },
     {
       titre: "Toujours les mêmes schémas",
+      illustration: "schemas",
       texte:
         "Vous constatez des schémas répétitifs dans vos relations personnelles ou professionnelles et sentez le besoin de changer cela.",
     },
     {
       titre: "Envie de vous sentir vivant·e",
+      illustration: "vivant",
       texte:
         "Vous peinez à vous sentir pleinement exister, à trouver votre chemin de vie, avec un besoin de vous sentir vivant·e.",
     },
