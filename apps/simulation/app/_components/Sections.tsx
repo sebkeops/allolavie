@@ -78,8 +78,8 @@ export function Maieusthesie() {
       <p className="max-w-2xl">{maieusthesie.intro}</p>
       <ol className="mt-8 grid gap-6 md:grid-cols-3">
         {maieusthesie.points.map((p, i) => (
-          <li key={p.titre} className="rounded-3xl bg-paper p-6">
-            <span aria-hidden="true" className="flex h-10 w-10 items-center justify-center rounded-full bg-orange font-serif text-lg font-bold text-night">
+          <li key={p.titre} className="rounded-3xl bg-paper p-6 text-center md:text-left">
+            <span aria-hidden="true" className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-orange md:mx-0 font-serif text-lg font-bold text-night">
               {i + 1}
             </span>
             <h3 className="mt-4 font-serif text-xl text-teal">{p.titre}</h3>
@@ -219,9 +219,9 @@ export function Faq() {
 }
 
 /* Pastille ronde qui porte un picto (orange du logo, picto en `night`). */
-function Pastille({ children }: { children: React.ReactNode }) {
+function Pastille({ children, centrer = false }: { children: React.ReactNode; centrer?: boolean }) {
   return (
-    <span aria-hidden="true" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md">
+    <span aria-hidden="true" className={`${centrer ? "mx-auto md:mx-0" : ""} flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md`}>
       {children}
     </span>
   );
@@ -231,20 +231,20 @@ export function Zone() {
   return (
     <Section id="zone" titre={zone.titre} vague={7}>
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6">
-          <Pastille>
+        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6 text-center md:text-left">
+          <Pastille centrer>
             <IconeVisio />
           </Pastille>
           <h3 className="mt-4 font-serif text-2xl text-teal">{zone.visio.titre}</h3>
           <p className="mt-2">{zone.visio.texte}</p>
         </div>
-        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6">
-          <Pastille>
+        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6 text-center md:text-left">
+          <Pastille centrer>
             <IconeMaison />
           </Pastille>
           <h3 className="mt-4 font-serif text-2xl text-teal">{zone.presentiel.titre}</h3>
           <p className="mt-2">{zone.presentiel.texte}</p>
-          <p className="mt-4 flex items-center gap-2 rounded-2xl border-2 border-dashed border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
+          <p className="mt-4 flex items-center justify-center gap-2 rounded-2xl border-2 border-dashed md:justify-start border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
             <IconeRepere className="h-5 w-5 shrink-0 text-teal" />
             {zone.presentiel.zonePlaceholder}
           </p>
