@@ -47,13 +47,15 @@ body {
 }
 
 /*
- * Titres : césure française (lang="fr") et coupure de secours, pour qu'un mot
- * long (« psychothérapeutique ») ne dépasse jamais la largeur de l'écran.
+ * Titres : lignes équilibrées, pas de césure (« psychothérapeu-tique » refusé
+ * en recette). Coupure de secours seulement si un mot dépasse l'écran : la
+ * taille mobile du h1 (2rem) est choisie pour que « psychothérapeutique »
+ * tienne dès 360 px.
  */
 h1,
 h2,
 h3 {
-  hyphens: auto;
+  text-wrap: balance;
   overflow-wrap: break-word;
 }
 

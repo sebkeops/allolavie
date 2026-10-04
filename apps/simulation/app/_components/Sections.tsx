@@ -19,10 +19,10 @@ import {
 export function Accroche() {
   return (
     <section id="haut" className="bg-gradient-to-b from-leaf to-pale px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
-      <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_auto]">
+      <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[minmax(0,1fr)_17rem] md:gap-10">
         <div className="min-w-0">
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-terra">{hero.surtitre}</p>
-          <h1 className="font-serif text-[2rem] leading-tight text-teal sm:text-4xl md:text-5xl">{hero.titre}</h1>
+          <h1 className="font-serif text-[2rem] leading-tight text-teal sm:text-4xl lg:text-5xl">{hero.titre}</h1>
           <p className="mt-5 max-w-xl text-lg text-ink">{hero.texte}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <BoutonAppeler texte={hero.ctaAppeler} />
@@ -30,7 +30,15 @@ export function Accroche() {
           </div>
           <p className="mt-5 font-serif italic text-muted">{contact.phraseContact}</p>
         </div>
-        <ImageDouce {...images.portrait} priority galet className="mx-auto w-full shadow-xl ring-8 ring-lime" />
+        {/* Portrait : taille réelle (234 px, non agrandi), posé sur deux galets décoratifs. */}
+        <figure className="relative mx-auto w-[min(100%,234px)]">
+          <span aria-hidden="true" className="absolute -inset-5 rotate-6 rounded-[58%_42%_52%_48%/46%_54%_46%_54%] bg-lime/50" />
+          <span aria-hidden="true" className="absolute -bottom-4 -left-6 h-16 w-16 rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange" />
+          <ImageDouce {...images.portrait} priority galet className="relative w-full shadow-xl ring-8 ring-paper" />
+          <figcaption className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-paper px-4 py-1 font-serif text-lg italic text-teal-deep shadow-md">
+            {contact.prenom}
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
