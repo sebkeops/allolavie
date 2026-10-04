@@ -85,9 +85,13 @@ export function Maieusthesie() {
       <div className="mt-10 grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_18rem]">
         <ol className="relative grid gap-6">
           {/* Fil de la rivière, derrière les pastilles (centre à 1.75rem). */}
-          <svg aria-hidden="true" className="absolute bottom-8 left-[1.25rem] top-8 w-4" viewBox="0 0 16 100" preserveAspectRatio="none">
-            <path d="M8 0 C 16 17, 0 33, 8 50 S 16 83, 8 100" fill="none" className="stroke-lime" strokeWidth={4} vectorEffect="non-scaling-stroke" />
-          </svg>
+          {/* Le SVG est un élément « remplacé » : positionné seul avec top + bottom, il garde
+              sa hauteur intrinsèque (100 px) au lieu de s'étirer. Un <div> l'étire, le SVG le remplit. */}
+          <div aria-hidden="true" className="absolute bottom-10 left-[1.25rem] top-10 w-4">
+            <svg className="block h-full w-full" viewBox="0 0 16 100" preserveAspectRatio="none">
+              <path d="M8 0 C 16 17, 0 33, 8 50 S 16 83, 8 100" fill="none" className="stroke-lime" strokeWidth={4} vectorEffect="non-scaling-stroke" />
+            </svg>
+          </div>
           {maieusthesie.points.map((p, i) => (
             <li key={p.titre} className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-4">
               <span aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange font-serif text-2xl font-bold text-night shadow-md">
