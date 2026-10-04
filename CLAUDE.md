@@ -53,8 +53,9 @@ En-tête sur **fond vert anis vif** (demande de Sébastien) : le logo orange y e
 un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1). Sur mobile et tablette, le logo est
 **centré**, menu à droite, et **pas d'icône téléphone dans l'en-tête** (décision de
 Sébastien : la barre fixe du bas et l'accroche portent déjà l'appel). Écart assumé au
-brief lot 0 §4.2 (« numéro cliquable en header sticky ») ; sur ordinateur, le numéro
-reste dans l'en-tête.
+brief lot 0 §4.2 (« numéro cliquable en header sticky »). Sur ordinateur non plus
+(« trop chargé ») : logo, 4 liens, un seul bouton clair « Prendre RDV » ; survol des liens
+par une petite vague « rivière » qui apparaît, pas de soulignement.
 **Boutons « Appeler » / « Prendre RDV » en version douce** (pleins orange et bleu-vert
 jugés « trop agressifs ») : fond pêche `#FCE3C6` bordé d'orange, et contour bleu-vert sur
 fond clair.

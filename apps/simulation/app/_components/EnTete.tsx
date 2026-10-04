@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { MenuMobile } from "./MenuMobile";
-import { IconeTelephone } from "./Icones";
-import { contact, images, libelles, navigation } from "@/content/site";
+import { IconeCalendrier, Riviere } from "./Icones";
+import { images, libelles, navigation } from "@/content/site";
 
 /*
  * En-tête sur fond vert anis vif (demande de Sébastien, pour qu'il ressorte).
@@ -22,11 +22,13 @@ export function EnTete() {
         </a>
 
         <nav aria-label="Navigation principale" className="hidden lg:block">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-8">
             {navigation.map((lien) => (
               <li key={lien.href}>
-                <a href={lien.href} className="font-bold text-teal-deep underline-offset-4 hover:underline">
+                {/* Survol / focus : une petite vague « rivière » apparaît sous le lien (au lieu du soulignement). */}
+                <a href={lien.href} className="group relative inline-flex min-h-12 items-center font-semibold text-teal-deep">
                   {lien.label}
+                  <Riviere className="absolute -bottom-0.5 left-0 !h-2.5 translate-y-1 text-teal-deep opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none" />
                 </a>
               </li>
             ))}
@@ -34,12 +36,11 @@ export function EnTete() {
         </nav>
 
         <div className="flex items-center gap-1 justify-self-end">
-          <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="hidden min-h-12 items-center gap-2 rounded-full px-3 font-bold text-teal-deep hover:bg-leaf lg:flex">
-            <IconeTelephone />
-            {contact.telephoneAffiche}
-          </a>
-          <a href="#contact" className="hidden min-h-12 items-center rounded-full bg-teal-deep px-5 font-bold text-white hover:bg-night lg:flex">
-            {libelles.contact}
+          {/* Desktop allégé (retour de recette) : plus de numéro ici — il est dans l'accroche et
+              la section contact. Un seul bouton, clair, à la place de l'aplat foncé. */}
+          <a href="#contact" className="hidden min-h-12 items-center gap-2 rounded-full border-2 border-teal-deep bg-paper px-5 font-bold text-teal-deep transition-colors hover:bg-leaf lg:flex">
+            <IconeCalendrier />
+            {libelles.prendreRdv}
           </a>
           <MenuMobile />
         </div>
