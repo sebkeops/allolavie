@@ -29,6 +29,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-titre)", "Georgia", "serif"],
         sans: ["var(--font-texte)", "system-ui", "sans-serif"],
+        manuscrite: ["var(--font-manuscrite)", "cursive"],
       },
     },
   },

@@ -30,14 +30,14 @@ export function Accroche() {
             <BoutonAppeler texte={hero.ctaAppeler} />
             <BoutonRdv texte={hero.ctaRdv} />
           </div>
-          <p className="mt-5 font-serif italic text-muted">{contact.phraseContact}</p>
+          <p className="mt-5 font-manuscrite font-semibold text-2xl text-muted">{contact.phraseContact}</p>
         </div>
         {/* Portrait : taille réelle (234 px, non agrandi), posé sur deux galets décoratifs. */}
         <figure className="relative mx-auto w-[min(100%,234px)]">
           <span aria-hidden="true" className="absolute -inset-5 rotate-6 rounded-[58%_42%_52%_48%/46%_54%_46%_54%] bg-lime/50" />
           <span aria-hidden="true" className="absolute -bottom-4 -left-6 h-16 w-16 rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange" />
           <ImageDouce {...images.portrait} priority galet className="relative w-full shadow-xl ring-8 ring-paper" />
-          <figcaption className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-paper px-4 py-1 font-serif text-lg italic text-teal-deep shadow-md">
+          <figcaption className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-paper px-4 py-0.5 font-manuscrite font-semibold text-2xl text-teal-deep shadow-md">
             {contact.prenom}
           </figcaption>
         </figure>
@@ -55,7 +55,7 @@ export function Pourquoi() {
           <li key={m.titre} className="flex flex-col items-center gap-4 rounded-[2rem_3.5rem_2rem_3.5rem] border-l-8 border-lime bg-pale p-6 text-center sm:flex-row sm:text-left">
             <VisageEmotion emotion={m.illustration} />
             <div className="min-w-0">
-              <h3 className="font-serif text-xl text-teal">{m.titre}</h3>
+              <h3 className="font-manuscrite font-semibold text-3xl leading-tight text-teal">{m.titre}</h3>
               <p className="mt-2">{m.texte}</p>
             </div>
           </li>
@@ -65,7 +65,7 @@ export function Pourquoi() {
       <div className="mt-10 flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
         <ImageDouce {...images.chevaux} className="w-full md:w-[400px] md:shrink-0" />
         <div className="text-center md:text-left">
-          <p className="font-serif text-2xl text-teal">{pourquoi.conclusion}</p>
+          <p className="font-manuscrite font-semibold text-4xl text-teal">{pourquoi.conclusion}</p>
           <BoutonAppeler texte={libelles.appeler} className="mt-4" />
         </div>
       </div>
@@ -120,7 +120,7 @@ export function QuiSuisJe() {
     <Section id="qui" titre={qui.titre} surtitre={qui.surtitre} vague={3}>
       <div className="grid gap-10 md:grid-cols-[1fr_auto]">
         <div className="min-w-0">
-          <blockquote className="border-l-4 border-lime pl-5 font-serif text-2xl italic leading-snug text-teal">
+          <blockquote className="border-l-4 border-lime pl-5 font-manuscrite font-semibold text-3xl leading-snug text-teal md:text-4xl">
             {qui.citation}
           </blockquote>
           {qui.paragraphes.map((p) => (
@@ -179,7 +179,7 @@ export function Seances() {
         ))}
       </ul>
       <div className="mt-10 flex flex-col items-start gap-5 rounded-[2rem] bg-orange p-5 text-night md:flex-row md:items-center md:justify-between md:p-8">
-        <p className="font-serif text-2xl italic md:text-3xl">{seances.frein}</p>
+        <p className="font-manuscrite font-semibold text-3xl md:text-4xl">{seances.frein}</p>
         <a href={contact.telephoneLien} className="inline-flex min-h-12 max-w-full items-center gap-2 rounded-full bg-night px-5 py-3 font-bold text-paper hover:bg-teal-deep md:shrink-0">
           <IconeTelephone />
           {seances.ctaFrein}
@@ -203,7 +203,7 @@ export function Temoignages() {
           <span aria-hidden="true" className="absolute -top-6 left-6 font-serif text-7xl leading-none text-orange">
             “
           </span>
-          <blockquote className="font-serif text-xl italic leading-relaxed">« {t.texte} »</blockquote>
+          <blockquote className="font-manuscrite font-semibold text-2xl leading-snug md:text-3xl">« {t.texte} »</blockquote>
           <figcaption className="mt-4 text-muted">— {t.auteur}</figcaption>
         </figure>
       ))}

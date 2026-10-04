@@ -87,7 +87,10 @@ orange du logo `#F68808` pour le bouton « Appeler ». **Pas de fond photo.**
 
 - Le vert anis vif et l'orange ne sont jamais des couleurs de texte (≤ 2,4:1).
 - Texte sur orange : `--night`.
-- Typo : Lora (titres) + Nunito Sans (texte, 18 px), via `next/font`.
+- Typo : Lora (titres) + Nunito Sans (texte, 18 px) + **Caveat manuscrite** (demande de
+  Sébastien) pour les accents seulement : titres des émotions, témoignage, citation de la
+  rivière, « Et oui, j'aime l'idée… », « Si le tarif est un frein… », « Et si on en
+  parlait ? ». Jamais pour le texte courant ni les formulaires. Toutes via `next/font`.
 
 ## 6. Verrou d'indexation
 

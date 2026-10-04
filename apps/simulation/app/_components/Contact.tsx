@@ -15,7 +15,7 @@ export function Contact() {
               {contact.email}
             </a>
           </p>
-          <p className="mt-6 font-serif italic text-muted">{contact.phraseContact}</p>
+          <p className="mt-6 font-manuscrite font-semibold text-2xl text-muted">{contact.phraseContact}</p>
           <p role="note" className="mt-8 rounded-2xl bg-paper p-4 text-base">
             {formulaire.urgence}
           </p>
