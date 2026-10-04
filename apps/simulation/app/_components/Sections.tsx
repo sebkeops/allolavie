@@ -61,8 +61,9 @@ export function Pourquoi() {
           </li>
         ))}
       </ul>
-      <div className="mt-10 flex flex-col items-center gap-6 md:flex-row md:justify-between">
-        <ImageDouce {...images.chevaux} className="w-full" />
+      {/* Photo + relance groupées au centre (pas de `justify-between` : laissait un grand vide sur desktop). */}
+      <div className="mt-10 flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
+        <ImageDouce {...images.chevaux} className="w-full md:w-[400px] md:shrink-0" />
         <div className="text-center md:text-left">
           <p className="font-serif text-2xl text-teal">{pourquoi.conclusion}</p>
           <BoutonAppeler texte={libelles.appeler} className="mt-4" />
