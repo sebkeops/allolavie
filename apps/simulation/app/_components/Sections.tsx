@@ -51,7 +51,7 @@ export function Pourquoi() {
       <p className="text-muted">{pourquoi.intro}</p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2">
         {pourquoi.motifs.map((m) => (
-          <li key={m.titre} className="flex flex-col gap-4 rounded-[2rem_3.5rem_2rem_3.5rem] border-l-8 border-lime bg-pale p-6 sm:flex-row sm:items-start">
+          <li key={m.titre} className="flex flex-col gap-4 rounded-[2rem_3.5rem_2rem_3.5rem] border-l-8 border-lime bg-pale p-6 sm:flex-row sm:items-center">
             <VisageEmotion emotion={m.illustration} />
             <div className="min-w-0">
               <h3 className="font-serif text-xl text-teal">{m.titre}</h3>
