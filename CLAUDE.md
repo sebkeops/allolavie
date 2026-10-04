@@ -49,6 +49,8 @@ change plus de direction, on peaufine. Formes ondulées (vagues entre sections, 
 « rivière » sous les titres, photos en galet), pictos dans des pastilles orange, et la
 section **Séances mise en avant** : seule section sur fond sombre (`teal-deep`), prix en
 grand, encart orange « Si le tarif est un frein, discutons-en ! ».
+En-tête sur **fond vert anis vif** (demande de Sébastien) : le logo orange y est posé sur
+un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1).
 
 ## 4. Données non tranchées
 
