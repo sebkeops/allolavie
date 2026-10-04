@@ -235,7 +235,7 @@ export function Faq() {
 /* Pastille ronde qui porte un picto (orange du logo, picto en `night`). */
 function Pastille({ children, centrer = false }: { children: React.ReactNode; centrer?: boolean }) {
   return (
-    <span aria-hidden="true" className={`${centrer ? "mx-auto md:mx-0" : ""} flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md`}>
+    <span aria-hidden="true" className={`${centrer ? "mx-auto" : ""} flex h-14 w-14 shrink-0 items-center justify-center rounded-[45%_55%_50%_50%/55%_45%_55%_45%] bg-orange text-night shadow-md`}>
       {children}
     </span>
   );
@@ -245,20 +245,20 @@ export function Zone() {
   return (
     <Section id="zone" titre={zone.titre} vague={7}>
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6 text-center md:text-left">
+        <div className="rounded-[2rem_3.5rem_2rem_3.5rem] border-t-8 border-lime bg-leaf p-6 text-center">
           <Pastille centrer>
             <IconeVisio />
           </Pastille>
           <h3 className="mt-4 font-serif text-2xl text-teal">{zone.visio.titre}</h3>
           <p className="mt-2">{zone.visio.texte}</p>
         </div>
-        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6 text-center md:text-left">
+        <div className="rounded-[3.5rem_2rem_3.5rem_2rem] border-t-8 border-lime bg-leaf p-6 text-center">
           <Pastille centrer>
             <IconeMaison />
           </Pastille>
           <h3 className="mt-4 font-serif text-2xl text-teal">{zone.presentiel.titre}</h3>
           <p className="mt-2">{zone.presentiel.texte}</p>
-          <p className="mt-4 flex items-center justify-center gap-2 rounded-2xl border-2 border-dashed md:justify-start border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
+          <p className="mt-4 flex items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
             <IconeRepere className="h-5 w-5 shrink-0 text-teal" />
             {zone.presentiel.zonePlaceholder}
           </p>
