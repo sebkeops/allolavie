@@ -164,8 +164,8 @@ l'équipe** de Thomas d'Ansembourg.
 ### À demander à Nathalie (en attendant, rien n'est inventé)
 
 1. **Zone d'intervention** : communes ou rayon pour le présentiel. Gif-sur-Yvette (91)
-   n'est que l'adresse de l'éditeur. En simulation, la section « Où et comment »
-   affichera Zoom + « présentiel à votre domicile » avec un emplacement réservé à la zone.
+   n'est que l'adresse de l'éditeur. En simulation, « Où et comment » affiche Zoom +
+   « présentiel à votre domicile », sans zone (aucun texte « à confirmer » à l'écran).
 2. **Adresse privée** : la garder dans les mentions légales, ou passer par une
    domiciliation ? Elle n'apparaît ni sur l'accueil ni dans le JSON-LD.
 3. **Photos** : existe-t-il des originaux en haute définition ? Les droits d'usage
@@ -174,8 +174,9 @@ l'équipe** de Thomas d'Ansembourg.
 4. **Témoignages** : d'autres sont-ils disponibles ? Accord et signature pour celui
    qu'on republie ?
 5. **Mentions légales** : SIRET et statut juridique.
-6. **FAQ** : réponses sur la mutuelle, la durée d'un accompagnement et la première
-   séance. En simulation, textes prudents marqués « à valider ».
+6. **FAQ** : réponses « premier contact » et « mutuelle » rédigées sans source
+   (`aValider: true` dans `content/site.ts`, exclues du JSON-LD, sans étiquette à
+   l'écran). Les réponses « durée » et « confidentialité » viennent de la charte.
 
 ### Restent ouverts (sans réponse pour l'instant)
 
