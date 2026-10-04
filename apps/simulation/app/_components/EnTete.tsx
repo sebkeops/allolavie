@@ -11,8 +11,13 @@ import { contact, images, libelles, navigation } from "@/content/site";
 export function EnTete() {
   return (
     <header className="sticky top-0 z-40 border-b-4 border-teal bg-lime shadow-md">
-      <div className="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-3 px-4 sm:px-6">
-        <a href="#haut" className="shrink-0 rounded-[45%_55%_50%_50%/60%_45%_55%_40%] bg-paper px-4 py-1.5 shadow-sm">
+      {/* < lg : grille 3 colonnes (téléphone · logo centré · menu) ; ≥ lg : logo · navigation · actions. */}
+      <div className="relative mx-auto grid h-16 max-w-5xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 sm:px-6 lg:flex lg:justify-between">
+        <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="flex h-12 w-12 items-center justify-center justify-self-start rounded-full text-teal-deep hover:bg-leaf lg:hidden">
+          <IconeTelephone />
+        </a>
+
+        <a href="#haut" className="shrink-0 justify-self-center rounded-[45%_55%_50%_50%/60%_45%_55%_40%] bg-paper px-4 py-1.5 shadow-sm">
           <Image src={images.logo.src} width={images.logo.width} height={images.logo.height} alt={images.logo.alt} priority className="h-8 w-auto" />
         </a>
 
@@ -28,10 +33,10 @@ export function EnTete() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-1">
-          <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="flex min-h-12 items-center gap-2 rounded-full px-3 font-bold text-teal-deep hover:bg-leaf">
+        <div className="flex items-center gap-1 justify-self-end">
+          <a href={contact.telephoneLien} aria-label={libelles.telephoneAria} className="hidden min-h-12 items-center gap-2 rounded-full px-3 font-bold text-teal-deep hover:bg-leaf lg:flex">
             <IconeTelephone />
-            <span className="hidden sm:inline">{contact.telephoneAffiche}</span>
+            {contact.telephoneAffiche}
           </a>
           <a href="#contact" className="hidden min-h-12 items-center rounded-full bg-teal-deep px-5 font-bold text-white hover:bg-night lg:flex">
             {libelles.contact}

@@ -50,7 +50,11 @@ change plus de direction, on peaufine. Formes ondulées (vagues entre sections, 
 section **Séances mise en avant** : seule section sur fond sombre (`teal-deep`), prix en
 grand, encart orange « Si le tarif est un frein, discutons-en ! ».
 En-tête sur **fond vert anis vif** (demande de Sébastien) : le logo orange y est posé sur
-un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1).
+un galet clair, car l'orange ne se lit pas sur ce vert (1,3:1). Sur mobile et tablette, le logo est
+**centré** (téléphone à gauche, menu à droite).
+**Boutons « Appeler » / « Prendre RDV » en version douce** (pleins orange et bleu-vert
+jugés « trop agressifs ») : fond pêche `#FCE3C6` bordé d'orange, et contour bleu-vert sur
+fond clair.
 
 ## 4. Données non tranchées
 

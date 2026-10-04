@@ -18,6 +18,7 @@
   --teal: 21 102 105;      /* #156669 marque (couleur du site actuel) */
   --teal-deep: 14 74 76;   /* #0E4A4C survol, pied de page */
   --night: 10 42 43;       /* #0A2A2B texte sur orange */
+  --peach: 252 227 198;    /* #FCE3C6 orange du logo très éclairci — fond doux du bouton « Appeler » */
   --orange: 246 136 8;     /* #F68808 orange du logo — bouton « Appeler », pastilles, décor */
   --terra: 168 71 12;      /* #A8470C petits accents de texte */
 }

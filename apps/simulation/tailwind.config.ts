@@ -22,6 +22,7 @@ const config: Config = {
         ink: jeton("ink"),
         muted: jeton("muted"),
         teal: { DEFAULT: jeton("teal"), deep: jeton("teal-deep") },
+        peach: jeton("peach"),
         orange: jeton("orange"),
         terra: jeton("terra"),
       },
