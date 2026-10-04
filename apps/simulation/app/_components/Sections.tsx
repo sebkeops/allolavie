@@ -1,7 +1,7 @@
 import { BoutonAppeler, BoutonRdv } from "./Boutons";
 import { ImageDouce } from "./ImageDouce";
 import { VisageEmotion } from "./Illustrations";
-import { IconeCalendrier, IconeCarte, IconeHorloge, IconeMaison, IconeRepere, IconeTelephone, IconeVisio, Riviere } from "./Icones";
+import { IconeCalendrier, IconeHorloge, IconeMaison, IconeTelephone, IconeVisio, Riviere } from "./Icones";
 import { Section } from "./Section";
 import {
   contact,
@@ -225,9 +225,6 @@ export function Faq() {
             </summary>
             <div className="pb-5">
               <p>{q.reponse}</p>
-              {q.aValider && (
-                <p className="mt-2 inline-block rounded-full bg-pale px-3 py-0.5 text-sm text-muted">{libelles.aValider}</p>
-              )}
             </div>
           </details>
         ))}
@@ -262,22 +259,6 @@ export function Zone() {
           </Pastille>
           <h3 className="mt-4 font-serif text-2xl text-teal">{zone.presentiel.titre}</h3>
           <p className="mt-2">{zone.presentiel.texte}</p>
-          <p className="mt-4 flex items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-teal/40 bg-paper/60 px-4 py-2 text-base text-muted">
-            <IconeRepere className="h-5 w-5 shrink-0 text-teal" />
-            {zone.presentiel.zonePlaceholder}
-          </p>
-        </div>
-      </div>
-      <div className="mt-6 flex flex-col gap-6 rounded-[2rem] bg-pale p-6 sm:flex-row sm:items-center">
-        <ImageDouce {...images.montagne} className="w-full sm:w-56 sm:shrink-0" />
-        <div className="min-w-0">
-          <h3 className="flex items-center gap-3 font-serif text-xl text-teal">
-            <Pastille>
-              <IconeCarte />
-            </Pastille>
-            {zone.teaser.titre}
-          </h3>
-          <p className="mt-3">{zone.teaser.texte}</p>
         </div>
       </div>
     </Section>

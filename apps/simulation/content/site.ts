@@ -3,8 +3,10 @@
  * client = l'édition d'une ligne. Sources : allolavie.fr (relevé du lot 0,
  * cf. PARTI-PRIS.md §7) et arbitrages de Sébastien (PARTI-PRIS.md §8).
  *
- * `aValider: true` signale un texte SANS source fournie : il s'affiche avec
- * une étiquette « réponse à valider » tant que Nathalie ne l'a pas relu.
+ * `aValider: true` signale un texte SANS source fournie, à faire relire par
+ * Nathalie (liste dans la PR). Rien ne l'indique à l'écran : la page s'adresse
+ * à un visiteur lambda, pas à Nathalie (décision de Sébastien). Ces réponses
+ * sont exclues du JSON-LD.
  */
 
 /** Bandeau de simulation : passer à `false` pour le retirer (une ligne). */
@@ -53,12 +55,6 @@ export const images = {
     height: 225,
     alt: "Coucher de soleil sur la mer, entre les pins",
   },
-  montagne: {
-    src: "/simulation/montagne-foret.webp",
-    width: 450,
-    height: 338,
-    alt: "Un chemin dans une forêt de mélèzes, au pied d'une montagne",
-  },
 };
 
 export const navigation = [
@@ -74,7 +70,6 @@ export const libelles = {
   contact: "Contact",
   menu: "Menu",
   telephoneAria: "Appeler Nathalie au 06 76 84 36 48",
-  aValider: "Réponse à valider",
 };
 
 export const hero = {
@@ -237,13 +232,7 @@ export const zone = {
   presentiel: {
     titre: "Chez vous, en présentiel",
     texte: "Je me déplace à votre domicile.",
-    // Zone non fournie : emplacement réservé (PARTI-PRIS.md §8, à demander à Nathalie).
-    zonePlaceholder: "Communes desservies : à confirmer avec Nathalie",
-  },
-  teaser: {
-    titre: "Bientôt : une page par commune",
-    texte:
-      "Sur le site final, chaque commune desservie aura sa propre page, pour être trouvée par les personnes qui cherchent un accompagnement près de chez elles.",
+    // Zone non fournie (PARTI-PRIS.md §8, à demander à Nathalie) : rien d'affiché en attendant.
   },
 };
 
@@ -292,8 +281,8 @@ export const pagesAnnexes = {
   mentionsLegales: {
     titre: "Mentions légales",
     blocs: [
-      { titre: "Éditrice", texte: "Nathalie Brousse Ducrocq. Adresse, statut et SIRET : à compléter." },
-      { titre: "Hébergement", texte: "Vercel Inc. Coordonnées complètes : à compléter." },
+      { titre: "Éditrice", texte: "Nathalie Brousse Ducrocq." },
+      { titre: "Hébergement", texte: "Vercel Inc." },
       {
         titre: "Données personnelles",
         texte: "Aucune donnée n'est enregistrée lors de la consultation du site.",
@@ -318,7 +307,6 @@ export const pagesAnnexes = {
         texte: "Rien de ce qui est confié n'est rapporté à qui que ce soit, sauf de façon anonyme.",
       },
     ],
-    note: "Page de simulation : le texte intégral de la charte sera repris sur le site final.",
   },
   confidentialite: {
     titre: "Politique de confidentialité",
@@ -329,7 +317,6 @@ export const pagesAnnexes = {
           "Les informations saisies servent uniquement à vous recontacter. Elles ne sont ni stockées dans une base de données, ni transmises à des tiers.",
       },
     ],
-    note: "Page de simulation : le texte définitif sera rédigé pour le site final.",
   },
   cookies: {
     titre: "Cookies",
@@ -339,6 +326,5 @@ export const pagesAnnexes = {
         texte: "Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience.",
       },
     ],
-    note: "Page de simulation.",
   },
 };

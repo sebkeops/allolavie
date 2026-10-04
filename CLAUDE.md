@@ -59,6 +59,14 @@ reste dans l'en-tête.
 jugés « trop agressifs ») : fond pêche `#FCE3C6` bordé d'orange, et contour bleu-vert sur
 fond clair.
 
+**La page s'adresse à un visiteur lambda, pas à Nathalie** (règle de Sébastien) : aucun
+texte « méta » à l'écran — ni teaser commercial (« une page par commune »), ni étiquette
+« réponse à valider », ni emplacement « à confirmer avec Nathalie », ni note « page de
+simulation ». Ce qui manque est suivi dans `PARTI-PRIS.md §8` et la PR ; Sébastien
+complète à l'oral. Seules exceptions : le bandeau « Simulation SIGWEB — non
+contractuelle » et la mention sous la confirmation du formulaire (« aucun message n'est
+réellement envoyé »), pour qu'aucun vrai visiteur ne croie sa demande transmise.
+
 ## 4. Données non tranchées
 
 Liste tenue à jour dans `apps/simulation/PARTI-PRIS.md §8`. À demander à Nathalie :
